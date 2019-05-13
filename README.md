@@ -1,4 +1,4 @@
-# www
+# stackoverflow-project
 
 ## Project setup
 ```
