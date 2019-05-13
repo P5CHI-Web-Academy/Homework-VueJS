@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  api:
+    build: ./docker/dev/api
+    image: json-server
+    container_name: json-server
+    volumes:
+      - ./database:/var/www/database:cached
+    ports:
+      - 3000:3000
+
+  app:
+    build: ./docker/dev/app
+    image: app
+    container_name: app
+    volumes:
+      - .:/var/www
+    ports:
+      - "8080:8080"
