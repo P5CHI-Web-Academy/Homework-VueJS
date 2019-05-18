@@ -1,18 +1,40 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <v-layout row wrap>
+      <v-flex xs6>
+        <h1>Questions</h1>
+      </v-flex>
+
+      <v-flex xs6 class="text-xs-right">
+        <v-btn color="info">Ask Question</v-btn>
+      </v-flex>
+    </v-layout>
+
+    <div v-for="question in questions" :key="question.id">
+      <div v-html="question.body"></div>
+      <hr/>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+  import axios from '@/plugins/axios'
 
-export default {
-  name: 'home',
-  components: {
-    HelloWorld
+  export default {
+    name: 'Home',
+    data () {
+      return {
+        questions: []
+      }
+    },
+    created () {
+      axios.get('/questions?_limit=10')
+        .then(({ data }) => {
+          this.questions = data
+        })
+    }
   }
-}
 </script>
+
+<style scoped>
+</style>
