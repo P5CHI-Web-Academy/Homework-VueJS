@@ -6,13 +6,15 @@
       </v-flex>
 
       <v-flex xs6 class="text-xs-right">
-        <v-btn color="info">Ask Question</v-btn>
+        <v-btn color="info">
+          Ask Question
+        </v-btn>
       </v-flex>
     </v-layout>
 
     <div v-for="question in questions" :key="question.id">
-      <div v-html="question.body"></div>
-      <hr/>
+      <div v-html="question.body" />
+      <hr>
     </div>
   </div>
 </template>
@@ -21,19 +23,19 @@
   import axios from '@/plugins/axios'
 
   export default {
-    name: 'Home',
-    data () {
-      return {
-        questions: []
-      }
-    },
-    created () {
-      axios.get('/questions?_limit=10')
-        .then(({ data }) => {
-          this.questions = data
-        })
+  name: 'Home',
+  data () {
+    return {
+      questions: []
     }
+  },
+  created () {
+    axios.get('/questions?_limit=10')
+      .then(({ data }) => {
+        this.questions = data
+      })
   }
+}
 </script>
 
 <style scoped>

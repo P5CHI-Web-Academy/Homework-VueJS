@@ -63,24 +63,24 @@
   import axios from '@/plugins/axios'
 
   export default {
-    name: 'LeftMenu',
-    data () {
-      return {
-        tags: [],
-        users: [],
-      }
-    },
-    created () {
-      axios.get('/tags?_limit=5')
-        .then(({ data }) => {
-          this.tags = data
-        })
-      axios.get('/users?_limit=10')
-        .then(({ data }) => {
-          this.users = data
-        })
+  name: 'LeftMenu',
+  data () {
+    return {
+      tags: [],
+      users: []
     }
+  },
+  created () {
+    axios.get('/tags?_limit=5')
+      .then(({ data }) => {
+        this.tags = data
+      })
+    axios.get('/users?_limit=10')
+      .then(({ data }) => {
+        this.users = data
+      })
   }
+}
 </script>
 
 <style scoped>

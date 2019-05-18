@@ -12,9 +12,7 @@
         <router-view />
       </v-flex>
 
-      <v-flex xs2>
-
-      </v-flex>
+      <v-flex xs2 />
     </v-layout>
   </div>
 </template>
@@ -24,9 +22,9 @@
   import LeftMenu from '@/components/layouts/LeftMenu'
 
   export default {
-    name: 'CommonLayout',
-    components: { LeftMenu, Header }
-  }
+  name: 'CommonLayout',
+  components: { LeftMenu, Header }
+}
 </script>
 
 <style scoped>
