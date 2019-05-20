@@ -23,19 +23,19 @@
   import axios from '@/plugins/axios'
 
   export default {
-  name: 'Home',
-  data () {
-    return {
-      questions: []
+    name: 'Home',
+    data () {
+      return {
+        questions: []
+      }
+    },
+    created () {
+      axios.get('/questions?_limit=10')
+        .then(({ data }) => {
+          this.questions = data
+        })
     }
-  },
-  created () {
-    axios.get('/questions?_limit=10')
-      .then(({ data }) => {
-        this.questions = data
-      })
   }
-}
 </script>
 
 <style scoped>
