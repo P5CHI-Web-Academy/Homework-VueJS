@@ -11,20 +11,20 @@
   import {mapActions, mapGetters} from 'vuex'
 
   export default {
-    computed: {
-      ...mapGetters({
-        questions: 'question/getList'
-      })
-    },
-    created () {
-      this.fetchQuestions()
-    },
-    methods: {
-      ...mapActions({
-        fetchQuestions: 'question/fetch'
-      })
-    }
+  computed: {
+    ...mapGetters({
+      questions: 'question/getList'
+    })
+  },
+  created () {
+    this.fetchQuestions()
+  },
+  methods: {
+    ...mapActions({
+      fetchQuestions: 'question/fetch'
+    })
   }
+}
 </script>
 
 <style scoped>

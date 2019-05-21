@@ -33,18 +33,18 @@
   import {mapActions, mapGetters} from 'vuex'
 
   export default {
-    computed: {
-      ...mapGetters({
-        users: 'user/getList'
-      })
-    },
-    created () {
-      this.fetchUsers()
-    },
-    methods: {
-      ...mapActions({
-        fetchUsers: 'user/fetch'
-      })
-    }
+  computed: {
+    ...mapGetters({
+      users: 'user/getList'
+    })
+  },
+  created () {
+    this.fetchUsers()
+  },
+  methods: {
+    ...mapActions({
+      fetchUsers: 'user/fetch'
+    })
   }
+}
 </script>

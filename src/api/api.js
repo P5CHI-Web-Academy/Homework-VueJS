@@ -1,3 +1,3 @@
-import instance from "@/plugins/axios"
+import instance from '@/plugins/axios'
 
 export default instance

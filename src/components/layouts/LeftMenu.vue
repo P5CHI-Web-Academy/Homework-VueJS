@@ -15,13 +15,13 @@
 </template>
 
 <script>
-  import Users from "../leftSidebar/Users";
-  import Tags from "../leftSidebar/Tags";
+  import Users from '../leftSidebar/Users'
+  import Tags from '../leftSidebar/Tags'
 
   export default {
-    name: 'LeftMenu',
-    components: {Users, Tags}
-  }
+  name: 'LeftMenu',
+  components: { Users, Tags }
+}
 </script>
 
 <style scoped>

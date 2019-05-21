@@ -17,12 +17,12 @@
 </template>
 
 <script>
-  import Questions from "../components/content/Questions";
+  import Questions from '../components/content/Questions'
 
   export default {
-    name: 'Home',
-    components: {Questions}
-  }
+  name: 'Home',
+  components: { Questions }
+}
 </script>
 
 <style scoped>
