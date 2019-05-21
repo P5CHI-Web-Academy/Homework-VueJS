@@ -12,29 +12,16 @@
       </v-flex>
     </v-layout>
 
-    <div v-for="question in questions" :key="question.id">
-      <div v-html="question.body" />
-      <hr>
-    </div>
+    <Questions />
   </div>
 </template>
 
 <script>
-  import axios from '@/plugins/axios'
+  import Questions from "../components/content/Questions";
 
   export default {
     name: 'Home',
-    data () {
-      return {
-        questions: []
-      }
-    },
-    created () {
-      axios.get('/questions?_limit=10')
-        .then(({ data }) => {
-          this.questions = data
-        })
-    }
+    components: {Questions}
   }
 </script>
 
