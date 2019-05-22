@@ -1,5 +1,13 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
   <div>
+    <v-text-field
+      label="Search"
+      single-line
+      v-model="userNameLike"
+      :value="userNameLike"
+    ></v-text-field>
+
+
     <v-progress-circular
       indeterminate
       color="purple"
@@ -42,8 +50,18 @@
       loading: 'user/getLoading'
     })
   },
+  data() {
+    return {
+      userNameLike: ''
+    }
+  },
+  watch: {
+    'userNameLike': function(val){
+      this.fetchUsers({ '_limit': 50, 'display_name_like': val })
+    }
+  },
   created () {
-    this.fetchUsers()
+    this.fetchUsers({ '_limit': 50, 'display_name_like': this.userNameLike })
   },
   methods: {
     ...mapActions({

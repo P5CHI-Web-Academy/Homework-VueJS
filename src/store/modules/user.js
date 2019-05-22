@@ -4,21 +4,22 @@ export default {
   namespaced: true,
   state: {
     list: [],
-    loading: true
+    loading: false
   },
   actions: {
-    fetch ({ commit }) {
-      fetchUsers()
+    fetch ({ commit }, data) {
+      commit('mutateLoading', true)
+      fetchUsers(data)
         .then(result => commit('mutateList', result.data))
-        .finally(() => commit('mutateLoading'))
+        .finally(() => commit('mutateLoading', false))
     }
   },
   mutations: {
     mutateList: (state, users) => {
       state.list = users
     },
-    mutateLoading: (state) => {
-      state.loading = false
+    mutateLoading: (state, load) => {
+      state.loading = load
     }
   },
   getters: {
