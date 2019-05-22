@@ -11,51 +11,31 @@
     </v-layout>
     <hr>
 
-    <div v-for="question in questions" :key="question.id">
-      <v-layout>
-        <v-flex>
-          <div>
-            <v-btn flat>{{ question.score }}</v-btn>
-            <span>Votes</span>
-          </div>
-          <div>
-            <v-btn flat>{{ question.answer_count }}</v-btn>
-            <span>Answers</span>
-          </div>
-          <div>
-            <v-btn flat>{{ question.view_count }}</v-btn>
-            <span>View</span>
-          </div>
-        </v-flex>
-        <v-flex>
-          <div v-html="question.body"></div>
-          <div v-for="tag in question.tags">
-            <v-btn small light color="blue">{{ tag }}</v-btn>
-          </div>
-        </v-flex>
-      </v-layout>
+    <Questions />
 
-      <hr/>
-    </div>
   </div>
 </template>
 
 <script>
-  import httpClient from '@/plugins/axios'
+  // import httpClient from '@/plugins/axios'
+  import Questions from '@/components/Questions/Questions'
 
   export default {
     name: 'Home',
-    data () {
-      return {
-        questions: []
-      }
-    },
-    created () {
-      httpClient.get('/questions?_limit=10')
-        .then(({ data }) => {
-          this.questions = data
-        })
+    components: {
+      Questions
     }
+    // data () {
+    //   return {
+    //     questions: []
+    //   }
+    // },
+    // created () {
+    //   httpClient.get('/questions?_limit=10')
+    //     .then(({ data }) => {
+    //       this.questions = data
+    //     })
+    // }
 
   }
 </script>

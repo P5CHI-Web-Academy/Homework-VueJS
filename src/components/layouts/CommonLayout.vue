@@ -12,7 +12,7 @@
       </v-flex>
 
       <v-flex xs2>
-
+        <RightPanel />
       </v-flex>
     </v-layout>
   </div>
@@ -21,12 +21,14 @@
 <script>
 import Header from "@/components/layouts/Header"
 import SideMenu from "@/components/layouts/SideMenu"
+import RightPanel from "@/components/layouts/RightPanel"
 
 export default {
   name: 'CommonLayout',
   components: {
     Header,
-    SideMenu
+    SideMenu,
+    RightPanel
   }
 }
 </script>
