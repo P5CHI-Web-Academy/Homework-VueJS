@@ -12,7 +12,9 @@
         <router-view />
       </v-flex>
 
-      <v-flex xs2 />
+      <v-flex xs2>
+        <RightMenu />
+      </v-flex>
     </v-layout>
   </div>
 </template>
@@ -20,10 +22,11 @@
 <script>
   import Header from '@/components/layouts/Header'
   import LeftMenu from '@/components/layouts/LeftMenu'
+  import RightMenu from '@/components/layouts/RightMenu'
 
   export default {
   name: 'CommonLayout',
-  components: { LeftMenu, Header }
+  components: {RightMenu, LeftMenu, Header }
 }
 </script>
 

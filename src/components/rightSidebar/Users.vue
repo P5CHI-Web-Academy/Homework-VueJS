@@ -1,18 +1,6 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
-  <v-list-group no-action>
-    <template v-slot:activator="">
-      <v-list-tile>
-        <v-list-tile-content>
-          <v-list-tile-title>Users</v-list-tile-title>
-        </v-list-tile-content>
-      </v-list-tile>
-    </template>
-
-    <v-list-tile
-      v-for="user in users"
-      :key="user.id"
-      @click=""
-    >
+  <div>
+    <div class="user" v-for="user in users" :key="user.id">
       <v-avatar
         size="18px"
         style="margin-right: 5px"
@@ -22,11 +10,9 @@
           alt="Avatar"
         >
       </v-avatar>
-      <v-list-tile-content>
-        <v-list-tile-title>{{ user.display_name }}</v-list-tile-title>
-      </v-list-tile-content>
-    </v-list-tile>
-  </v-list-group>
+      <div>{{ user.display_name }}</div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -48,3 +34,9 @@
   }
 }
 </script>
+
+<style scoped>
+  .user {
+    display: flex;
+  }
+</style>

@@ -8,19 +8,16 @@
       </v-list-tile>
 
       <Tags />
-
-      <Users />
     </v-list>
   </v-navigation-drawer>
 </template>
 
 <script>
-  import Users from '../leftSidebar/Users'
   import Tags from '../leftSidebar/Tags'
 
   export default {
   name: 'LeftMenu',
-  components: { Users, Tags }
+  components: { Tags }
 }
 </script>
 
