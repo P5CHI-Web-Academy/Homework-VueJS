@@ -1,17 +1,34 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
   <div>
-    <div class="user" v-for="user in users" :key="user.id">
-      <v-avatar
-        size="18px"
-        style="margin-right: 5px"
-      >
-        <img
-          :src="user.profile_image"
-          alt="Avatar"
-        >
-      </v-avatar>
-      <div>{{ user.display_name }}</div>
-    </div>
+    <v-progress-circular
+      indeterminate
+      color="purple"
+      v-if="loading"
+    ></v-progress-circular>
+
+    <v-tooltip top v-for="user in users" :key="user.id">
+      <template v-slot:activator="{ on }">
+        <div class="user">
+          <v-avatar
+            size="18px"
+            style="margin-right: 5px"
+            dark v-on="on"
+          >
+            <img
+              :src="user.profile_image"
+              alt="Avatar"
+            >
+          </v-avatar>
+          <div>{{ user.display_name }}</div>
+        </div>
+      </template>
+
+      <div>
+        <p>Gold: {{ user.badge_counts.gold }}</p>
+        <p>Silver: {{ user.badge_counts.silver }}</p>
+        <p>Bronze: {{ user.badge_counts.bronze }}</p>
+      </div>
+    </v-tooltip>
   </div>
 </template>
 
@@ -21,7 +38,8 @@
   export default {
   computed: {
     ...mapGetters({
-      users: 'user/getList'
+      users: 'user/getList',
+      loading: 'user/getLoading'
     })
   },
   created () {
@@ -38,5 +56,6 @@
 <style scoped>
   .user {
     display: flex;
+    margin: 15px 0 15px 0;
   }
 </style>
