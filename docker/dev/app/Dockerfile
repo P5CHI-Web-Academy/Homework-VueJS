@@ -1,13 +1,12 @@
 FROM node:10.15.3-alpine
 
-RUN apk add --no-cache git yarn \
-    && yarn global add @vue/cli
+RUN yarn global add @vue/cli
 
-WORKDIR "/var/www"
+WORKDIR /var/www
 
 EXPOSE 8080
 
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/bin/sh", "/entrypoint.sh"]
 
-CMD yarn serve
+CMD yarn serve --host 0.0.0.0 --port 8080

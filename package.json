@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "stack-overflow",
+=======
+  "name": "stack_overflow",
+>>>>>>> 66b6d0be4eb1cf8cc7fc4a7896769972202c080a
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,9 +12,13 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+<<<<<<< HEAD
     "axios": "^0.18.0",
     "core-js": "^2.6.5",
     "register-service-worker": "^1.6.2",
+=======
+    "core-js": "^2.6.5",
+>>>>>>> 66b6d0be4eb1cf8cc7fc4a7896769972202c080a
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
     "vuetify": "^1.5.5",
@@ -19,7 +27,10 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.7.0",
     "@vue/cli-plugin-eslint": "^3.7.0",
+<<<<<<< HEAD
     "@vue/cli-plugin-pwa": "^3.7.0",
+=======
+>>>>>>> 66b6d0be4eb1cf8cc7fc4a7896769972202c080a
     "@vue/cli-service": "^3.7.0",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
