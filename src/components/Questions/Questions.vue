@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="question in questionList" :key="question.id">
-      <v-layout>
+      <v-layout class="mx-3 my-3">
         <v-flex>
           <div>
             <v-btn flat>{{ question.score }}</v-btn>
@@ -18,9 +18,10 @@
         </v-flex>
         <v-flex>
           <div v-html="question.body"></div>
-          <div v-for="tag in question.tags">
+
+          <v-flex xs4 v-for="tag in question.tags" :key="tag.id">
             <v-btn small light color="blue">{{ tag }}</v-btn>
-          </div>
+          </v-flex>
         </v-flex>
       </v-layout>
 

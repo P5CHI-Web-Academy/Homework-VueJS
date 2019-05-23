@@ -6,7 +6,6 @@ export default {
   namespaced: true,
   state: {
     questionList: [],
-    loading: false
   },
   actions: {
     fetch ({ commit }) {
