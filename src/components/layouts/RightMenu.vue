@@ -1,4 +1,3 @@
-
 <template>
   <div class="right-part">
     <Users />
@@ -9,6 +8,7 @@
   import Users from "../rightSidebar/Users";
 
   export default {
+    name: 'RightMenu',
     components: {
       Users
     }

@@ -7,7 +7,6 @@
       :value="userNameLike"
     ></v-text-field>
 
-
     <v-progress-circular
       indeterminate
       color="purple"
@@ -44,31 +43,32 @@
   import {mapActions, mapGetters} from 'vuex'
 
   export default {
-  computed: {
-    ...mapGetters({
-      users: 'user/getList',
-      loading: 'user/getLoading'
-    })
-  },
-  data() {
-    return {
-      userNameLike: ''
+    name: 'Users',
+    computed: {
+      ...mapGetters({
+        users: 'user/getList',
+        loading: 'user/getLoading'
+      })
+    },
+    data() {
+      return {
+        userNameLike: ''
+      }
+    },
+    watch: {
+      'userNameLike': function(val){
+        this.fetchUsers({ '_limit': 50, 'display_name_like': val })
+      }
+    },
+    created () {
+      this.fetchUsers({ '_limit': 50, 'display_name_like': this.userNameLike })
+    },
+    methods: {
+      ...mapActions({
+        fetchUsers: 'user/fetch'
+      })
     }
-  },
-  watch: {
-    'userNameLike': function(val){
-      this.fetchUsers({ '_limit': 50, 'display_name_like': val })
-    }
-  },
-  created () {
-    this.fetchUsers({ '_limit': 50, 'display_name_like': this.userNameLike })
-  },
-  methods: {
-    ...mapActions({
-      fetchUsers: 'user/fetch'
-    })
   }
-}
 </script>
 
 <style scoped>
