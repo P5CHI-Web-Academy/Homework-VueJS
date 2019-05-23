@@ -1,11 +1,6 @@
 <template>
   <div>
     <div v-if="loading" class="text-xs-center">
-      <!-- <v-progress-circular
-        class="ma-auto"
-        indeterminate
-        color="green"
-      ></v-progress-circular> -->
       <v-progress-circular
         :size="50"
         color="primary"

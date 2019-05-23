@@ -1,6 +1,4 @@
-import {
-  fetchUsers
-} from '@/api/users'
+import { fetchUsers } from '@/api/users'
 
 export default {
   namespaced: true,
@@ -9,7 +7,7 @@ export default {
     loading: false
   },
   actions: {
-    fetch ({ commit }) {
+    fetch: ({ commit }) => {
       commit('mutateLoading', true);
       fetchUsers()
         .then(result => commit('mutateUserList', result.data))
@@ -20,8 +18,8 @@ export default {
     mutateUserList: (state, users) => {
       state.userList = users
     },
-    mutateLoading: (state, loadingProcess) => {
-      state.loading = loadingProcess
+    mutateLoading: (state, isLoading) => {
+      state.loading = isLoading
     }
   },
   getters: {

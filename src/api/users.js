@@ -1,3 +1,3 @@
 import API from './axios'
 
-export const fetchUsers = (param) => API.get('/users?_limit=10')
+export const fetchUsers = (param) => API.get('/users?_limit=20')

@@ -1,6 +1,14 @@
 <template>
   <div>
-    <div v-for="question in questionList" :key="question.id">
+    <div v-if="loading" class="text-xs-center">
+      <v-progress-circular
+        :size="50"
+        color="primary"
+        indeterminate
+      ></v-progress-circular>
+    </div>
+    <div v-else>
+      <div v-for="question in questionList" :key="question.id">
       <v-layout class="mx-3 my-3">
         <v-flex>
           <div>
@@ -24,9 +32,10 @@
           </v-flex>
         </v-flex>
       </v-layout>
-
       <hr/>
     </div>
+    </div>
+
   </div>
 </template>
 
@@ -37,7 +46,8 @@ export default {
   name: 'Questions',
   computed: {
     ...mapGetters({
-      questionList: 'questions/getQuestionList'
+      questionList: 'questions/getQuestionList',
+      loading: 'questions/getLoading'
     })
   },
   mounted () {
