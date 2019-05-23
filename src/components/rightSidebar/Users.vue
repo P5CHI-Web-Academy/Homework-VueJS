@@ -1,17 +1,17 @@
-<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
+<template>
   <div>
     <v-text-field
       label="Search"
       single-line
       v-model="userNameLike"
       :value="userNameLike"
-    ></v-text-field>
+    />
 
     <v-progress-circular
       indeterminate
       color="purple"
       v-if="loading"
-    ></v-progress-circular>
+    />
 
     <v-tooltip top v-for="user in users" :key="user.id">
       <template v-slot:activator="{ on }">
