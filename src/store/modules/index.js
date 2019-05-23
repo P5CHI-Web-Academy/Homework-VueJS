@@ -1,3 +1,5 @@
 export { default as user } from './user'
 export { default as tag } from './tag'
 export { default as question } from './question'
+export { default as answer } from './answer'
+export { default as comment } from './comment'

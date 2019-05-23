@@ -13,16 +13,34 @@
     </v-layout>
 
     <Questions />
+
+    <v-layout row wrap>
+      <v-flex xs6>
+        <h1>Answers</h1>
+      </v-flex>
+    </v-layout>
+
+    <Answers />
+
+    <v-layout row wrap>
+      <v-flex xs6>
+        <h1>Comments</h1>
+      </v-flex>
+    </v-layout>
+
+    <Comments />
   </div>
 </template>
 
 <script>
   import Questions from '../components/content/Questions'
+  import Answers from "../components/content/Answers";
+  import Comments from "../components/content/Comments";
 
   export default {
-  name: 'Home',
-  components: { Questions }
-}
+    name: 'Home',
+    components: { Questions, Answers, Comments }
+  }
 </script>
 
 <style scoped>
