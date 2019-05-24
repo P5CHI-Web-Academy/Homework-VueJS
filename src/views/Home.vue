@@ -18,9 +18,11 @@
 
 <script>
 import Questions from '../components/content/Questions'
+import Comments from '../components/content/Comments'
+import Answers from '../components/content/Answers'
 export default {
   name: 'Home',
-  components: { Questions }
+  components: { Questions, Comments, Answers }
 }
 </script>
 

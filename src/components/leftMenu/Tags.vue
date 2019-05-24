@@ -7,11 +7,32 @@
         </v-list-tile-content>
       </v-list-tile>
     </template>
+    <v-list-tile
+      v-for="tag in tags"
+      :key="tag.name"
+    >
+      <v-list-tile-content>
+        {{ tag.name }}
+      </v-list-tile-content>
+    </v-list-tile>
   </v-list-group>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 export default {
-  name: 'Tags'
+  computed: {
+    ...mapGetters({
+      tags: 'tag/getList'
+    })
+  },
+  created () {
+    this.fetchTags()
+  },
+  methods: {
+    ...mapActions({
+      fetchTags: 'tag/fetch'
+    })
+  }
 }
 </script>
