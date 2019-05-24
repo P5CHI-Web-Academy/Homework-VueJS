@@ -1,3 +1,4 @@
-import instance from '@/plugins/axios'
-
-export default instance
+import axios from 'axios'
+export default axios.create({
+  baseURL: 'http://localhost:3001'
+})

@@ -1,21 +1,21 @@
 <template>
   <div class="right-part">
-    <Users />
+    <LastUserWidget />
   </div>
 </template>
 
 <script>
-import Users from '../rightSidebar/Users'
+import LastUserWidget from '@/components/User/LastUserWidget'
 
 export default {
   name: 'RightMenu',
   components: {
-    Users
+    LastUserWidget
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style  lang="scss" scoped>
   .right-part{
     margin:10px
   }

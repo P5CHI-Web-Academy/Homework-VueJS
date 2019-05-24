@@ -7,12 +7,12 @@
         <LeftMenu />
       </v-flex>
 
-      <v-flex xs8>
+      <v-flex xs8 class="pa-5">
         <router-view />
       </v-flex>
 
       <v-flex xs2>
-        <RightMenu />
+        <RightPart />
       </v-flex>
     </v-layout>
   </div>
@@ -21,11 +21,11 @@
 <script>
 import Header from '@/components/layouts/Header'
 import LeftMenu from '@/components/layouts/LeftMenu'
-import RightMenu from '@/components/layouts/RightMenu'
+import RightPart from '@/components/layouts/RightPart'
 
 export default {
   name: 'CommonLayout',
-  components: { RightMenu, LeftMenu, Header }
+  components: { LeftMenu, Header, RightPart }
 }
 </script>
 
