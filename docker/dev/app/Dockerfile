@@ -6,4 +6,7 @@ RUN apk add --no-cache git yarn \
 WORKDIR /var/www
 EXPOSE 8080
 
+COPY start.sh /start.sh
+ENTRYPOINT ["/bin/sh", "/start.sh"]
+
 CMD yarn serve
