@@ -1,4 +1,4 @@
-import {fetchTags} from '@/api/tags'
+import { fetchTags } from '@/api/tags'
 
 export default {
   namespaced: true,

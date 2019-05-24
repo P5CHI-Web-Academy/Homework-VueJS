@@ -5,9 +5,9 @@
 </template>
 
 <script>
-  import Users from '../rightSidebar/Users'
+import Users from '../rightSidebar/Users'
 
-  export default {
+export default {
   name: 'RightMenu',
   components: {
     Users

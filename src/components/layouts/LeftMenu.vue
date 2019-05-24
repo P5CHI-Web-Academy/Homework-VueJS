@@ -13,9 +13,9 @@
 </template>
 
 <script>
-  import Tags from '../leftSidebar/Tags'
+import Tags from '../leftSidebar/Tags'
 
-  export default {
+export default {
   name: 'LeftMenu',
   components: { Tags }
 }

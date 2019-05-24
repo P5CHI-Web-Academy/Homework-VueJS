@@ -1,4 +1,4 @@
-import {fetchAnswers} from '@/api/answers'
+import { fetchAnswers } from '@/api/answers'
 
 export default {
   namespaced: true,

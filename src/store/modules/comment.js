@@ -1,4 +1,4 @@
-import {fetchComments} from '@/api/comments'
+import { fetchComments } from '@/api/comments'
 
 export default {
   namespaced: true,

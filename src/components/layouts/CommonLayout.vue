@@ -19,11 +19,11 @@
 </template>
 
 <script>
-  import Header from '@/components/layouts/Header'
-  import LeftMenu from '@/components/layouts/LeftMenu'
-  import RightMenu from '@/components/layouts/RightMenu'
+import Header from '@/components/layouts/Header'
+import LeftMenu from '@/components/layouts/LeftMenu'
+import RightMenu from '@/components/layouts/RightMenu'
 
-  export default {
+export default {
   name: 'CommonLayout',
   components: { RightMenu, LeftMenu, Header }
 }

@@ -33,11 +33,11 @@
 </template>
 
 <script>
-  import Questions from '../components/content/Questions'
-  import Answers from '../components/content/Answers'
-  import Comments from '../components/content/Comments'
+import Questions from '../components/content/Questions'
+import Answers from '../components/content/Answers'
+import Comments from '../components/content/Comments'
 
-  export default {
+export default {
   name: 'Home',
   components: { Questions, Answers, Comments }
 }
