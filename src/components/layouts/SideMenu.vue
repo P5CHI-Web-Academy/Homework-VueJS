@@ -20,13 +20,17 @@
 
       <v-list-tile @click="">
         <v-list-tile-content>
-          <v-list-tile-title>Tags</v-list-tile-title>
+          <v-list-tile-title>
+            <router-link to="/tags" active-class="active">Tags</router-link>
+          </v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
 
       <v-list-tile @click="">
         <v-list-tile-content>
-          <v-list-tile-title>Users</v-list-tile-title>
+          <v-list-tile-title>
+            Users
+          </v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
     </v-list>
@@ -40,7 +44,5 @@ export default {
 </script>
 
 <style <style lang="scss" scoped>
-  .menu-item__link {
-    text-decoration: none;
-  }
+
 </style>

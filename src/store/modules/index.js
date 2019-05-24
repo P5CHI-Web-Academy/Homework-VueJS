@@ -1,2 +1,5 @@
 export { default as users } from './users'
 export { default as questions } from './questions'
+export { default as tags } from './tags'
+export { default as answers } from './answers'
+export { default as comments } from './comments'

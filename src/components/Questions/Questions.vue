@@ -43,7 +43,7 @@
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  name: 'TopQuestions',
+  name: 'Questions',
   computed: {
     ...mapGetters({
       questionList: 'questions/getQuestionList',
