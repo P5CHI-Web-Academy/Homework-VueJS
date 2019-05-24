@@ -12,22 +12,22 @@
       <v-layout class="mx-3 my-3">
         <v-flex>
           <div>
-            <v-btn flat>{{ question.score }}</v-btn>
-            <span>Votes</span>
+            <v-btn flat class="text-lowercase caption stat-btn">{{ question.score }} <br> Votes</v-btn>
+          </div>
+          <div v-if="question.answer_count > 0">
+            <v-btn flat outline color="teal" class="text-lowercase caption stat-btn">{{ question.answer_count }} <br> Answers</v-btn>
+          </div>
+          <div v-else>
+            <v-btn flat class="text-lowercase caption stat-btn">{{ question.answer_count }} <br> Answers</v-btn>
           </div>
           <div>
-            <v-btn flat>{{ question.answer_count }}</v-btn>
-            <span>Answers</span>
-          </div>
-          <div>
-            <v-btn flat>{{ question.view_count }}</v-btn>
-            <span>View</span>
+            <v-btn flat class="text-lowercase caption stat-btn">{{ question.view_count }} <br> Views</v-btn>
           </div>
         </v-flex>
         <v-flex>
           <div v-html="question.title"></div>
           <br>
-          <v-flex d-inline-flex xs4 v-for="tag in question.tags" :key="tag.id">
+          <v-flex d-inline-flex v-for="tag in question.tags" :key="tag.id">
             <v-btn small light depressed color="#b8def2" class="text-lowercase caption indigo--text">{{ tag }}</v-btn>
           </v-flex>
         </v-flex>
@@ -62,6 +62,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+  .stat-btn:hover:before {
+      background-color: transparent;
+  }
 </style>
 
