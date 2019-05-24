@@ -16,9 +16,9 @@
   import Tags from '../leftSidebar/Tags'
 
   export default {
-    name: 'LeftMenu',
-    components: { Tags }
-  }
+  name: 'LeftMenu',
+  components: { Tags }
+}
 </script>
 
 <style scoped>

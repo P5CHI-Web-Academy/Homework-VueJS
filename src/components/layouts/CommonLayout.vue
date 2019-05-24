@@ -24,9 +24,9 @@
   import RightMenu from '@/components/layouts/RightMenu'
 
   export default {
-    name: 'CommonLayout',
-    components: { RightMenu, LeftMenu, Header }
-  }
+  name: 'CommonLayout',
+  components: { RightMenu, LeftMenu, Header }
+}
 </script>
 
 <style scoped>

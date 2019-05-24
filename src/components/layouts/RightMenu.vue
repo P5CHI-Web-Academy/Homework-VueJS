@@ -5,14 +5,14 @@
 </template>
 
 <script>
-  import Users from "../rightSidebar/Users";
+  import Users from '../rightSidebar/Users'
 
   export default {
-    name: 'RightMenu',
-    components: {
-      Users
-    }
+  name: 'RightMenu',
+  components: {
+    Users
   }
+}
 </script>
 
 <style lang="scss" scoped>

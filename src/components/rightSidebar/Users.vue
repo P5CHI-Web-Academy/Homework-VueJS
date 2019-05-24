@@ -1,25 +1,26 @@
 <template>
   <div>
     <v-text-field
+      v-model="userNameLike"
       label="Search"
       single-line
-      v-model="userNameLike"
       :value="userNameLike"
     />
 
     <v-progress-circular
+      v-if="loading"
       indeterminate
       color="purple"
-      v-if="loading"
     />
 
-    <v-tooltip top v-for="user in users" :key="user.id">
+    <v-tooltip v-for="user in users" :key="user.id" top>
       <template v-slot:activator="{ on }">
         <div class="user">
           <v-avatar
             size="18px"
             style="margin-right: 5px"
-            dark v-on="on"
+            dark
+            v-on="on"
           >
             <img
               :src="user.profile_image"
@@ -43,32 +44,32 @@
   import {mapActions, mapGetters} from 'vuex'
 
   export default {
-    name: 'Users',
-    computed: {
-      ...mapGetters({
-        users: 'user/getList',
-        loading: 'user/getLoading'
-      })
-    },
-    data() {
-      return {
-        userNameLike: ''
-      }
-    },
-    watch: {
-      'userNameLike': function(val){
-        this.fetchUsers({ '_limit': 50, 'display_name_like': val })
-      }
-    },
-    created () {
-      this.fetchUsers({ '_limit': 50, 'display_name_like': this.userNameLike })
-    },
-    methods: {
-      ...mapActions({
-        fetchUsers: 'user/fetch'
-      })
+  name: 'Users',
+  computed: {
+    ...mapGetters({
+      users: 'user/getList',
+      loading: 'user/getLoading'
+    })
+  },
+  data () {
+    return {
+      userNameLike: ''
     }
+  },
+  watch: {
+    'userNameLike': function (val) {
+      this.fetchUsers({ '_limit': 50, 'display_name_like': val })
+    }
+  },
+  created () {
+    this.fetchUsers({ '_limit': 50, 'display_name_like': this.userNameLike })
+  },
+  methods: {
+    ...mapActions({
+      fetchUsers: 'user/fetch'
+    })
   }
+}
 </script>
 
 <style scoped>

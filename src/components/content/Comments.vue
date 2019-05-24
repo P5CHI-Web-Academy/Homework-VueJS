@@ -11,21 +11,21 @@
   import {mapActions, mapGetters} from 'vuex'
 
   export default {
-    name: 'Comments',
-    computed: {
-      ...mapGetters({
-        comments: 'comment/getList'
-      })
-    },
-    created () {
-      this.fetchComments()
-    },
-    methods: {
-      ...mapActions({
-        fetchComments: 'comment/fetch'
-      })
-    }
+  name: 'Comments',
+  computed: {
+    ...mapGetters({
+      comments: 'comment/getList'
+    })
+  },
+  created () {
+    this.fetchComments()
+  },
+  methods: {
+    ...mapActions({
+      fetchComments: 'comment/fetch'
+    })
   }
+}
 </script>
 
 <style scoped>
