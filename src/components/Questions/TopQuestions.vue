@@ -25,7 +25,7 @@
           </div>
         </v-flex>
         <v-flex>
-          <div v-html="question.body"></div>
+          <div v-html="question.title"></div>
 
           <v-flex xs4 v-for="tag in question.tags" :key="tag.id">
             <v-btn small light color="blue">{{ tag }}</v-btn>

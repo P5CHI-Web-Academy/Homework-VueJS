@@ -2,7 +2,7 @@
   <div>
     <v-layout row wrap>
       <v-flex xs6>
-        <h1>Top Questions</h1>
+        <h1>All Questions</h1>
       </v-flex>
 
       <v-flex xs6 class="text-xs-right">
@@ -11,18 +11,18 @@
     </v-layout>
     <hr>
 
-    <TopQuestions />
+    <Questions />
 
   </div>
 </template>
 
 <script>
-  import TopQuestions from '@/components/Questions/TopQuestions'
+  import Questions from '@/components/Questions/Questions'
 
   export default {
-    name: 'Home',
+    name: 'AllQuestions',
     components: {
-      TopQuestions
+      Questions
     }
 
   }
