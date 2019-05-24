@@ -26,9 +26,9 @@
         </v-flex>
         <v-flex>
           <div v-html="question.title"></div>
-
-          <v-flex xs4 v-for="tag in question.tags" :key="tag.id">
-            <v-btn small light color="blue">{{ tag }}</v-btn>
+          <br>
+          <v-flex d-inline-flex xs4 v-for="tag in question.tags" :key="tag.id">
+            <v-btn small light depressed color="#b8def2" class="text-lowercase caption indigo--text">{{ tag }}</v-btn>
           </v-flex>
         </v-flex>
       </v-layout>
@@ -60,3 +60,8 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+
+</style>
+

@@ -36,7 +36,6 @@
       </div>
 
     </div>
-    <!-- {{ userList }} -->
   </div>
 </template>
 
