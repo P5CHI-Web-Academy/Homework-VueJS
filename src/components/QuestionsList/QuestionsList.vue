@@ -1,23 +1,34 @@
 <template>
-  <div id="QuestionsList">
+  <div>
+    <v-card v-for="question in questions" :key="question.id" class="item">
+      <h3 class="headline mb-3">Question {{question.id}}</h3>
+      <div v-html="question.body" />
+      <hr>
+    </v-card>
   </div>
 </template>
 
 <script>
-import axios from '@/plugins/axios'
-
+import { mapActions, mapGetters } from 'vuex'
 export default {
-  name: 'QuestionsList',
-  data () {
-    return {
-      userList: []
-    }
+  computed: {
+    ...mapGetters({
+      questions: 'question/getList'
+    })
   },
   created () {
-    axios.get('/questions?_page=7&_limit=10').then(response => {
-      this.userList = response.data
-      console.log(response.data)
+    this.fetchQuestions()
+  },
+  methods: {
+    ...mapActions({
+      fetchQuestions: 'question/fetch'
     })
   }
 }
 </script>
+
+<style scoped>
+  .item {
+    margin-top: 20px;
+  }
+</style>

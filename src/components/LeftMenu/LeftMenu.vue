@@ -1,6 +1,6 @@
 <template>
   <div id="LeftMenu">
-    <v-flex xs2>
+    <v-flex xs12>
       <v-list light>
         <v-list-tile @click>
           <v-list-tile-content>
@@ -49,3 +49,9 @@ export default {
   name: 'LeftMenu'
 }
 </script>
+
+<style>
+  #LeftMenu {
+    margin-right: 20px;
+  }
+</style>
