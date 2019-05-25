@@ -29,7 +29,7 @@
       <v-list-tile @click="">
         <v-list-tile-content>
           <v-list-tile-title>
-            Users
+            <router-link to="/users" active-class="active">Users</router-link>
           </v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>

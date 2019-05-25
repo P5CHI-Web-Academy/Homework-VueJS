@@ -25,7 +25,9 @@
           </div>
         </v-flex>
         <v-flex>
-          <div v-html="question.title"></div>
+          <div>
+            <router-link :to="{name: 'question', params: {id: question.id}}">{{ question.title }}</router-link>
+          </div>
           <br>
           <v-flex d-inline-flex v-for="tag in question.tags" :key="tag.id">
             <v-btn small light depressed color="#b8def2" class="text-lowercase caption indigo--text">{{ tag }}</v-btn>
@@ -50,7 +52,7 @@ export default {
       loading: 'questions/getLoading'
     })
   },
-  mounted () {
+  created () {
     this.fetchQuestions()
   },
   methods: {

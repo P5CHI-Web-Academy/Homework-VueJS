@@ -25,6 +25,7 @@
           </div>
         </v-flex>
         <v-flex>
+          <h2 v-html="question.title"></h2>
           <div v-html="question.body"></div>
           <br>
           <v-flex d-inline-flex v-for="tag in question.tags" :key="tag.id">
@@ -50,7 +51,7 @@ export default {
       loading: 'questions/getLoading'
     })
   },
-  mounted () {
+  created () {
     this.fetchQuestions()
   },
   methods: {

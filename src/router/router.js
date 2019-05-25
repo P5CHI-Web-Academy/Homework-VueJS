@@ -27,9 +27,28 @@ export default new Router({
           component: () => import('@/views/AllQuestions.vue')
         },
         {
+          path: '/question/:id',
+          name: 'question',
+          params: ['id'],
+          props: true,
+          component: () => import('@/views/Question.vue')
+        },
+        {
           path: '/tags',
           name: 'tags',
           component: () => import('@/views/AllTags.vue')
+        },
+        {
+          path: '/users',
+          name: 'users',
+          component: () => import('@/views/AllUsers.vue')
+        },
+        {
+          path: '/user/:id',
+          name: 'user',
+          params: ['id'],
+          props: true,
+          component: () => import('@/views/User.vue')
         }
       ]
     }
