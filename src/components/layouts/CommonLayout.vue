@@ -19,9 +19,9 @@
 </template>
 
 <script>
-import Header from "@/components/layouts/Header"
-import SideMenu from "@/components/layouts/SideMenu"
-import RightPanel from "@/components/layouts/RightPanel"
+import Header from '@/components/layouts/Header'
+import SideMenu from '@/components/layouts/SideMenu'
+import RightPanel from '@/components/layouts/RightPanel'
 
 export default {
   name: 'CommonLayout',
@@ -32,4 +32,3 @@ export default {
   }
 }
 </script>
-

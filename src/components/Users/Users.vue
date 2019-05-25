@@ -38,8 +38,8 @@ export default {
       loading: 'users/getLoading'
     })
   },
-  created() {
-    this.fetchUsers
+  created () {
+    this.fetchUsers()
   },
   methods: {
     ...mapActions({
@@ -48,4 +48,3 @@ export default {
   }
 }
 </script>
-

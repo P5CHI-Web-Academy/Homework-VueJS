@@ -25,10 +25,6 @@ export default {
   getters: {
     getQuestionList: state => state.questionList,
     getLoading: state => state.loading,
-    getById: state => id => {
-      console.log(state.questionList)
-      console.log(state.questionList.find(obj => obj.id === id))
-      return state.questionList.find(obj => obj.id === id)
-    }
+    getById: state => id => state.questionList.find(obj => obj.id === id)
   }
 }

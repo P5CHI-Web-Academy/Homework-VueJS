@@ -5,7 +5,7 @@
         :size="50"
         color="primary"
         indeterminate
-      ></v-progress-circular>
+      />
     </div>
     <div v-else>
       <div v-for="user in userList" :key="user.id">
@@ -33,7 +33,6 @@
             <span>Reputation: {{user.reputation}}</span>
           </div>
         </v-tooltip>
-
       </div>
     </div>
   </div>

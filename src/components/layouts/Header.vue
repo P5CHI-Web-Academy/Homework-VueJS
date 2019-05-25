@@ -33,10 +33,8 @@
           <span class="mr-2">Sign up</span>
         </v-btn>
       </v-toolbar-items>
-
     </v-toolbar>
   </div>
-
 </template>
 
 <script>
@@ -44,4 +42,3 @@ export default {
   name: 'Header'
 }
 </script>
-
