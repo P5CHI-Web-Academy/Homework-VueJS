@@ -18,7 +18,7 @@ export default {
       tagsList: 'tags/getTagsList'
     })
   },
-  mounted () {
+  created () {
     this.fetchTags()
   },
   methods: {

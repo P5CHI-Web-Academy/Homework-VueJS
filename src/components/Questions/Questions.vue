@@ -25,7 +25,9 @@
           </div>
         </v-flex>
         <v-flex>
-          <h2 v-html="question.title"></h2>
+          <div>
+            <router-link :to="{name: 'question', params: {id: question.id}}">{{ question.title }}</router-link>
+          </div>
           <div v-html="question.body"></div>
           <br>
           <v-flex d-inline-flex v-for="tag in question.tags" :key="tag.id">

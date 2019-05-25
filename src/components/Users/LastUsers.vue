@@ -12,14 +12,16 @@
         <v-tooltip left>
           <template v-slot:activator="{ on }">
             <div v-on="on">
-              <v-avatar size="36px" class="my-1 mx-1">
-                <img
-                  :src="user.profile_image"
-                  alt="Avatar"
-                >
-              </v-avatar>
-              {{ user.display_name }}
-          </div>
+              <router-link :to="{name: 'user', params: {id: user.id}}">
+                <v-avatar size="36px" class="my-1 mx-1">
+                  <img
+                    :src="user.profile_image"
+                    alt="Avatar"
+                  >
+                </v-avatar>
+                {{ user.display_name }}
+              </router-link>
+            </div>
           </template>
           <div>
             <span>Location: {{user.location}}</span>
@@ -30,11 +32,9 @@
           <div>
             <span>Reputation: {{user.reputation}}</span>
           </div>
-
         </v-tooltip>
 
       </div>
-
     </div>
   </div>
 </template>
@@ -49,7 +49,7 @@ export default {
       loading: 'users/getLoading'
     })
   },
-  mounted () {
+  created () {
     this.fetchUsers()
   },
   methods: {

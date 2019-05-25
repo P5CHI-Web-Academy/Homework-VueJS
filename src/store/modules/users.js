@@ -24,6 +24,11 @@ export default {
   },
   getters: {
     getUserList: state => state.userList,
-    getLoading: state => state.loading
+    getLoading: state => state.loading,
+    getById: state => id => {
+      console.log(state.userList)
+      console.log(state.userList.find(obj => obj.id === id))
+      return state.userList.find(obj => obj.id === id)
+    }
   }
 }
