@@ -16,12 +16,25 @@
       />
     </div>
 
-    <v-avatar v-for="user in userList" v-else :key="user.id" class="d-inline-flex ma-2" color="indigo">
-      <img
-        :src="user.profile_image"
-        alt="John"
-      >
-    </v-avatar>
+    <v-tooltip v-for="user in userList" v-else :key="user.id" top>
+      <template v-slot:activator="{ on }">
+        <v-avatar class="d-inline-flex ma-2" color="indigo">
+          <img
+            :src="user.profile_image"
+            alt="John"
+            v-on="on"
+          >
+        </v-avatar>
+      </template>
+
+      <div>
+        <p>{{ user.display_name }}</p>
+        <p>Gold: {{ user.badge_counts.gold }}</p>
+        <p>Silver: {{ user.badge_counts.silver }}</p>
+        <p>Bronze: {{ user.badge_counts.bronze }}</p>
+      </div>
+    </v-tooltip>
+
   </div>
 </template>
 
@@ -35,8 +48,8 @@ export default {
       loading: 'user/getLoading'
     })
   },
-  mounted () {
-    this.fetchUsers({ _limit: 52 })
+  created () {
+    this.fetchUsers({ _limit: 51 })
   },
   methods: {
     ...mapActions({
