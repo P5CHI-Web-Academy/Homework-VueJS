@@ -46,7 +46,9 @@
           </v-flex>
           <v-flex xs10>
             <div class="title">
-              {{ question.title }}
+              <router-link :to="{name: 'question', params: {id: question.id}}">
+                {{ question.title }}
+              </router-link>
             </div>
 
             <div class="mt-3">
@@ -55,12 +57,7 @@
           </v-flex>
         </v-layout>
       </v-container>
-      <!--      <p class="title mt-5">-->
-      <!--      </p>-->
-      <!--      &lt;!&ndash; eslint-disable vue/no-v-html &ndash;&gt;-->
 
-      <!--      <div v-html="question.body" />-->
-      <!--      <hr>-->
       <v-divider />
     </div>
   </div>
