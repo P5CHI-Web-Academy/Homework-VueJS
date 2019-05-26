@@ -18,13 +18,15 @@
 
     <v-tooltip v-for="user in userList" v-else :key="user.id" top>
       <template v-slot:activator="{ on }">
-        <v-avatar class="d-inline-flex ma-2" color="indigo">
-          <img
-            :src="user.profile_image"
-            alt="John"
-            v-on="on"
-          >
-        </v-avatar>
+        <router-link :to="{name: 'user', params: {id: user.id}}">
+          <v-avatar class="d-inline-flex ma-2" color="indigo">
+            <img
+              :src="user.profile_image"
+              :alt="user.display_name"
+              v-on="on"
+            >
+          </v-avatar>
+        </router-link>
       </template>
 
       <div>
