@@ -8,6 +8,16 @@
       </v-list-tile>
 
       <Tags />
+
+      <v-list-tile>
+        <v-list-tile-content>
+          <v-list-tile-title>
+            <router-link :to="{name: 'users'}">
+              Users
+            </router-link>
+          </v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
     </v-list>
   </v-navigation-drawer>
 </template>

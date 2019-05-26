@@ -16,34 +16,20 @@
       />
     </div>
 
-    <v-tooltip v-for="user in userList" v-else :key="user.id" top>
-      <template v-slot:activator="{ on }">
-        <router-link :to="{name: 'user', params: {id: user.id}}">
-          <v-avatar class="d-inline-flex ma-2" color="indigo">
-            <img
-              :src="user.profile_image"
-              :alt="user.display_name"
-              v-on="on"
-            >
-          </v-avatar>
-        </router-link>
-      </template>
-
-      <div>
-        <p>{{ user.display_name }}</p>
-        <p>Gold: {{ user.badge_counts.gold }}</p>
-        <p>Silver: {{ user.badge_counts.silver }}</p>
-        <p>Bronze: {{ user.badge_counts.bronze }}</p>
-      </div>
-    </v-tooltip>
+    <div v-for="user in userList" v-else :key="user.id" style="display: inline-block">
+      <Preview :user="user" />
+    </div>
 
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import Preview from "./Preview";
 
 export default {
+  name: 'LastUserWidget',
+  components: {Preview},
   computed: {
     ...mapGetters({
       userList: 'user/getList',
