@@ -26,7 +26,7 @@
           </v-flex>
           <v-flex>
             <div>
-              <router-link :to="{name: 'question', params: {id: question.id}}">
+              <router-link :to="{ name: 'question', params: { id: question.id } }">
                 <h3>{{ question.title }}</h3>
               </router-link>
             </div>

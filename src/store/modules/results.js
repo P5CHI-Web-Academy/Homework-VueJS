@@ -11,21 +11,18 @@ export default {
     fetchQuestions: ({ commit }, query) => {
       fetchQuestionsSearchResults(query)
         .then(result => {
-          console.log(result.data)
           commit('mutateResultQuestionsList', result.data)
         })
     },
     fetchUsers: ({ commit }, query) => {
       fetchUsersSearchResults(query)
         .then(result => {
-          console.log(result.data)
           commit('mutateResultUsersList', result.data)
         })
     },
     fetchTags: ({ commit }, query) => {
       fetchTagsSearchResults(query)
         .then(result => {
-          console.log(result.data)
           commit('mutateResultTagsList', result.data)
         })
     }
