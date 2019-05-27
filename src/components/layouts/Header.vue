@@ -8,9 +8,7 @@
         </router-link>
       </v-toolbar-title>
 
-      <v-spacer>
-        <v-text-field label="Search..." solo v-model="searchQuery" @keyup.enter="search"/>
-      </v-spacer>
+      <v-text-field v-model="searchQuery" label="Search..." class="mx-3" solo @keyup.enter="search" />
 
       <v-toolbar-items>
         <v-btn icon>
@@ -26,13 +24,17 @@
           flat
           target="_blank"
         >
-          <span class="mr-2">Log in</span>
+          <span class="mr-2">
+            Log in
+          </span>
         </v-btn>
         <v-btn
           flat
           target="_blank"
         >
-          <span class="mr-2">Sign up</span>
+          <span class="mr-2">
+            Sign up
+          </span>
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
@@ -42,13 +44,13 @@
 <script>
 export default {
   name: 'Header',
-  data: function() {
+  data: function () {
     return {
       searchQuery: ''
     }
   },
   methods: {
-    search() {
+    search () {
       this.$router.push({ path: '/search', query: { q: this.searchQuery } })
     }
   }

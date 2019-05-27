@@ -12,16 +12,31 @@
         <v-layout class="mx-3 my-3">
           <v-flex>
             <div>
-              <v-btn flat class="text-lowercase caption stat-btn">{{ question.score }} <br> Votes</v-btn>
+              <v-btn flat class="text-lowercase caption stat-btn">
+                {{ question.score }}
+                <br>
+                Votes
+              </v-btn>
             </div>
             <div v-if="question.answer_count > 0">
-              <v-btn flat outline color="teal" class="text-lowercase caption stat-btn">{{ question.answer_count }} <br> Answers</v-btn>
+              <v-btn flat outline color="teal" class="text-lowercase caption stat-btn">
+                {{ question.answer_count }}
+                <br>
+                Answers
+              </v-btn>
             </div>
             <div v-else>
-              <v-btn flat class="text-lowercase caption stat-btn">{{ question.answer_count }} <br> Answers</v-btn>
+              <v-btn flat class="text-lowercase caption stat-btn">
+                {{ question.answer_count }}
+                <br>
+                Answers
+              </v-btn>
             </div>
             <div>
-              <v-btn flat class="text-lowercase caption stat-btn">{{ question.view_count }} Views</v-btn>
+              <v-btn flat class="text-lowercase caption stat-btn">
+                {{ question.view_count }}
+                View
+              </v-btn>
             </div>
           </v-flex>
           <v-flex>
@@ -30,14 +45,18 @@
                 <h3>{{ question.title }}</h3>
               </router-link>
             </div>
-            <div v-html="shortenRow(question.body)"></div>
+            <div>
+              {{ shortenRow(question.body) }}"
+            </div>
             <br>
-            <v-flex d-inline-flex v-for="tag in question.tags" :key="tag.id">
-              <v-btn small light depressed color="#b8def2" class="text-lowercase caption indigo--text">{{ tag }}</v-btn>
+            <v-flex v-for="tag in question.tags" :key="tag.id" d-inline-flex>
+              <v-btn small light depressed color="#b8def2" class="text-lowercase caption indigo--text">
+                {{ tag }}
+              </v-btn>
             </v-flex>
           </v-flex>
         </v-layout>
-        <hr/>
+        <hr>
       </div>
     </div>
   </div>
@@ -61,7 +80,7 @@ export default {
     ...mapActions({
       fetchQuestions: 'questions/fetch'
     }),
-    shortenRow(row) {
+    shortenRow (row) {
       return row.replace(/<[^>]+>/g, '').substr(0, 200) + '...'
     }
   }
