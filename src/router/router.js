@@ -49,6 +49,13 @@ export default new Router({
           params: ['id'],
           props: true,
           component: () => import('@/views/User.vue')
+        },
+        {
+          path: '/search',
+          name: 'search',
+          params: ['query'],
+          props: (route) => ({ query: route.query.q }),
+          component: () => import('@/views/AllSearchResults.vue')
         }
       ]
     }
