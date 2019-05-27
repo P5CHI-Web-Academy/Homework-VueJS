@@ -26,7 +26,9 @@
           </v-flex>
           <v-flex>
             <div>
-              <router-link :to="{name: 'question', params: {id: question.id}}">{{ question.title }}</router-link>
+              <router-link :to="{name: 'question', params: {id: question.id}}">
+                <h3>{{ question.title }}</h3>
+              </router-link>
             </div>
             <div v-html="question.body"></div>
             <br>
@@ -66,5 +68,10 @@ export default {
 <style lang="scss" scoped>
   .stat-btn:hover:before {
       background-color: transparent;
+  }
+
+  div > a {
+    color: rgb(33, 138, 207);
+    text-decoration: none;
   }
 </style>

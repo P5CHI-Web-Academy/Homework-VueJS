@@ -42,3 +42,10 @@ export default {
   name: 'SideMenu'
 }
 </script>
+
+<style scoped lang="scss">
+  .v-list__tile__title > a {
+    color: black;
+    text-decoration: none;
+  }
+</style>

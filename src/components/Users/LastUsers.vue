@@ -58,3 +58,10 @@ export default {
   }
 }
 </script>
+
+<style scoped lang="scss">
+  div > a {
+    color: grey;
+    text-decoration: none;
+  }
+</style>

@@ -4,7 +4,7 @@
       <v-flex>
         <v-flex d-inline-flex>
           <v-avatar
-            tile=true
+            tile
             size="50px"
             color="grey lighten-4"
           >
