@@ -30,6 +30,7 @@
                 <h3>{{ question.title }}</h3>
               </router-link>
             </div>
+            <div v-html="shortenRow(question.body)"></div>
             <br>
             <v-flex d-inline-flex v-for="tag in question.tags" :key="tag.id">
               <v-btn small light depressed color="#b8def2" class="text-lowercase caption indigo--text">{{ tag }}</v-btn>
@@ -59,7 +60,10 @@ export default {
   methods: {
     ...mapActions({
       fetchQuestions: 'questions/fetch'
-    })
+    }),
+    shortenRow(row) {
+      return row.replace(/<[^>]+>/g, '').substr(0, 200) + '...'
+    }
   }
 }
 </script>
