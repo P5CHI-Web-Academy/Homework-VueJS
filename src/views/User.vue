@@ -1,20 +1,20 @@
 <template>
   <div>
-    <div v-if="Object.keys(currentUser).length === 0">
-      <h2>User not found</h2>
-    </div>
-    <div v-else>
+    <div v-if="Object.keys(currentUser).length > 0">
       User: {{ id }}
       <hr>
       <div>
-        {{currentUser}}
+        {{ currentUser }}
       </div>
+    </div>
+    <div v-else>
+      <h2>User not found</h2>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   props: {
@@ -30,6 +30,16 @@ export default {
     currentUser () {
       return this.getById(+this.id) || {}
     }
+  },
+  async created() {
+    if(!this.getById(+this.id)) {
+      await this.fetchUser(`?id=${+this.id}`)
+    }
+  },
+  methods: {
+    ...mapActions({
+      fetchUser: 'users/fetch'
+    })
   }
 }
 </script>

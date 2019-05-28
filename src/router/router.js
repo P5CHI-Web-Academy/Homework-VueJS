@@ -35,13 +35,6 @@ export default new Router({
           component: () => import('@/views/Question.vue')
         },
         {
-          path: '/user/:id',
-          name: 'user',
-          params: ['id'],
-          props: true,
-          component: () => import('@/views/User.vue')
-        },
-        {
           path: '/search',
           name: 'search',
           params: ['query'],
@@ -63,7 +56,14 @@ export default new Router({
           path: '/users',
           name: 'users',
           component: () => import('@/views/AllUsers.vue')
-        }
+        },
+        {
+          path: '/user/:id',
+          name: 'user',
+          params: ['id'],
+          props: true,
+          component: () => import('@/views/User.vue')
+        },
       ]
     }
   ]

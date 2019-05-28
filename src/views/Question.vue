@@ -1,14 +1,14 @@
 <template>
   <div>
-    <div v-if="Object.keys(currentQuestion).length === 0">
-      <h2>Question not found</h2>
-    </div>
-    <div v-else>
+    <div v-if="Object.keys(currentQuestion).length > 0">
       Question: {{ id }}
       <hr>
       <div>
         {{ currentQuestion }}
       </div>
+    </div>
+    <div v-else>
+      <h2>Question not found</h2>
     </div>
   </div>
 </template>
