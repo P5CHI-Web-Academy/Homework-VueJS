@@ -19,25 +19,25 @@
 </template>
 
 <script>
-  import { mapActions, mapGetters } from 'vuex'
-  import Preview from "../components/User/Preview";
+import { mapActions, mapGetters } from 'vuex'
+import Preview from '../components/User/Preview'
 
-  export default {
-    name: 'Users',
-    components: {Preview},
-    computed: {
-      ...mapGetters({
-        userList: 'user/getList',
-        loading: 'user/getLoading'
-      })
-    },
-    created () {
-      this.fetchUsers({})
-    },
-    methods: {
-      ...mapActions({
-        fetchUsers: 'user/fetch'
-      })
-    }
+export default {
+  name: 'Users',
+  components: { Preview },
+  computed: {
+    ...mapGetters({
+      userList: 'user/getList',
+      loading: 'user/getLoading'
+    })
+  },
+  created () {
+    this.fetchUsers({})
+  },
+  methods: {
+    ...mapActions({
+      fetchUsers: 'user/fetch'
+    })
   }
+}
 </script>

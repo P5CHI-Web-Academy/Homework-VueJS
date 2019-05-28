@@ -19,17 +19,16 @@
     <div v-for="user in userList" v-else :key="user.id" style="display: inline-block">
       <Preview :user="user" />
     </div>
-
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import Preview from "./Preview";
+import Preview from './Preview'
 
 export default {
   name: 'LastUserWidget',
-  components: {Preview},
+  components: { Preview },
   computed: {
     ...mapGetters({
       userList: 'user/getList',

@@ -33,30 +33,30 @@
 </template>
 
 <script>
-  import {mapGetters, mapActions} from 'vuex'
+import { mapGetters } from 'vuex'
 
-  export default {
-    name: "User",
-    props: {
-      id: {
-        type: [Number, String],
-        required: true,
-      }
-    },
-    computed: {
-      ...mapGetters({
-        getById: 'user/getById',
-        loading: 'user/getLoading'
-      }),
-      element: function () {
-        return this.getById(parseInt(this.id)) || {
-          badge_counts: {
-            gold: 0,
-            silver: 0,
-            bronze: 0
-          }
+export default {
+  name: 'User',
+  props: {
+    id: {
+      type: [Number, String],
+      required: true
+    }
+  },
+  computed: {
+    ...mapGetters({
+      getById: 'user/getById',
+      loading: 'user/getLoading'
+    }),
+    element: function () {
+      return this.getById(parseInt(this.id)) || {
+        badge_counts: {
+          gold: 0,
+          silver: 0,
+          bronze: 0
         }
       }
     }
   }
+}
 </script>

@@ -22,7 +22,7 @@
         return-object
         solo
         clearable
-      ></v-autocomplete>
+      />
     </v-card-text>
 
     <v-spacer />
@@ -67,8 +67,8 @@ export default {
         const Type = 'question'
         const Title = '[Q] ' + (
           entry.title.length > this.titleLimit
-          ? entry.title.slice(0, this.titleLimit) + '...'
-          : entry.title
+            ? entry.title.slice(0, this.titleLimit) + '...'
+            : entry.title
         )
 
         return Object.assign({}, entry, { Type, Title })
@@ -77,8 +77,8 @@ export default {
           const Type = 'user'
           const Title = '[U] ' + (
             entry.display_name.length > this.titleLimit
-            ? entry.display_name.slice(0, this.titleLimit) + '...'
-            : entry.display_name
+              ? entry.display_name.slice(0, this.titleLimit) + '...'
+              : entry.display_name
           )
 
           return Object.assign({}, entry, { Type, Title })
@@ -99,7 +99,7 @@ export default {
   },
 
   watch: {
-    model(val,oldval) {
+    model (val, oldval) {
       if (val === undefined) {
         return
       }

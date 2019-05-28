@@ -21,24 +21,24 @@
 </template>
 
 <script>
-  import {mapGetters, mapActions} from 'vuex'
+import { mapGetters } from 'vuex'
 
-  export default {
-    name: "Tag",
-    props: {
-      name: {
-        type: [String],
-        required: true,
-      }
-    },
-    computed: {
-      ...mapGetters({
-        getByName: 'tag/getByName',
-        loading: 'tag/getLoading'
-      }),
-      element: function () {
-        return this.getByName(this.name) || {name: 'N/A', count: 0}
-      }
+export default {
+  name: 'Tag',
+  props: {
+    name: {
+      type: [String],
+      required: true
+    }
+  },
+  computed: {
+    ...mapGetters({
+      getByName: 'tag/getByName',
+      loading: 'tag/getLoading'
+    }),
+    element: function () {
+      return this.getByName(this.name) || { name: 'N/A', count: 0 }
     }
   }
+}
 </script>

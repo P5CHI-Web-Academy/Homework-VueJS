@@ -2,10 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import CommonLayout from '@/components/layouts/CommonLayout'
 import Home from '@/views/Home'
-import Question from "../views/Question";
-import User from "../views/User";
-import Users from "../views/Users";
-import Tag from "../views/Tag";
+import Question from '../views/Question'
+import User from '../views/User'
+import Users from '../views/Users'
+import Tag from '../views/Tag'
 
 Vue.use(Router)
 
@@ -47,7 +47,7 @@ export default new Router({
           'params': ['name'],
           props: true,
           component: Tag
-        },
+        }
       ]
     }
   ]
