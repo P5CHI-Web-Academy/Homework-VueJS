@@ -7,14 +7,14 @@
       Question: {{ id }}
       <hr>
       <div>
-        {{currentQuestion}}
+        {{ currentQuestion }}
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   props: {
@@ -30,19 +30,16 @@ export default {
     currentQuestion () {
       return this.getById(+this.id) || {}
     }
+  },
+  async created() {
+    if(!this.getById(+this.id)) {
+      await this.fetchQuestion(`?id=${+this.id}`)
+    }
+  },
+  methods: {
+    ...mapActions({
+      fetchQuestion: 'questions/fetch'
+    })
   }
-  // methods: {
-  //   ...mapActions({
-  //     fetchQuestion: 'questions/fetch'
-  //   })
-  // },
-  // async mounted() {
-  //   if(!this.getById(this.id)) {
-  //     await this.fetchQuestion({
-  //       id: parseInt(this.id)
-  //     })
-  //   }
-  //   console.log()
-  // }
 }
 </script>

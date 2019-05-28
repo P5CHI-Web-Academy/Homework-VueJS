@@ -10,7 +10,6 @@
               </v-btn>
           </v-card-title>
           <div>Count: {{ tag.count }}</div>
-          <!-- <v-flex>{{ tag.name }}</v-flex> -->
         </v-card>
 
       </v-flex>

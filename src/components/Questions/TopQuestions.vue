@@ -73,7 +73,7 @@ export default {
     })
   },
   created () {
-    this.fetchQuestions()
+    this.fetchQuestions('?_limit=10')
   },
   methods: {
     ...mapActions({

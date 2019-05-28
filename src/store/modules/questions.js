@@ -7,11 +7,14 @@ export default {
     loading: false
   },
   actions: {
-    fetch: ({ commit }) => {
+    fetch: ({ commit }, params) => {
       commit('mutateLoading', true)
-      fetchQuestions()
-        .then(result => commit('mutateQuestionList', result.data))
-        .then(() => commit('mutateLoading', false))
+      return fetchQuestions(params)
+        .then(result => {
+          commit('mutateQuestionList', result.data)
+          return result
+        })
+        .finally(() => commit('mutateLoading', false))
     }
   },
   mutations: {
