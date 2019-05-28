@@ -5,6 +5,7 @@ import Home from '@/views/Home'
 import Question from "../views/Question";
 import User from "../views/User";
 import Users from "../views/Users";
+import Tag from "../views/Tag";
 
 Vue.use(Router)
 
@@ -39,7 +40,14 @@ export default new Router({
           path: 'users',
           name: 'users',
           component: Users
-        }
+        },
+        {
+          path: 'tag/:name',
+          name: 'tag',
+          'params': ['name'],
+          props: true,
+          component: Tag
+        },
       ]
     }
   ]

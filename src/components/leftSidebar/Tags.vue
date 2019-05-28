@@ -14,7 +14,11 @@
       @click=""
     >
       <v-list-tile-content>
-        <v-list-tile-title>{{ tag.name }}</v-list-tile-title>
+        <v-list-tile-title>
+          <router-link :to="{name: 'tag', params: {name: tag.name}}">
+            {{ tag.name }}
+          </router-link>
+        </v-list-tile-title>
       </v-list-tile-content>
     </v-list-tile>
   </v-list-group>
@@ -31,7 +35,7 @@ export default {
     })
   },
   created () {
-    this.fetchTags()
+    this.fetchTags({})
   },
   methods: {
     ...mapActions({
