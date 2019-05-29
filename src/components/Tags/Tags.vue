@@ -5,13 +5,12 @@
         <v-divider light />
         <v-card class="my-2" color="transparent" flat>
           <v-card-title>
-              <v-btn small light depressed color="#b8def2" class="text-lowercase caption indigo--text">
-                {{ tag.name }}
-              </v-btn>
+            <v-btn small light depressed color="#b8def2" class="text-lowercase caption indigo--text">
+              {{ tag.name }}
+            </v-btn>
           </v-card-title>
           <div>Count: {{ tag.count }}</div>
         </v-card>
-
       </v-flex>
     </v-layout>
   </div>

@@ -63,7 +63,7 @@ export default new Router({
           params: ['id'],
           props: true,
           component: () => import('@/views/User.vue')
-        },
+        }
       ]
     }
   ]

@@ -1,7 +1,6 @@
 <template>
   <div>
     <div v-if="Object.keys(currentUser).length > 0">
-      <!-- User: {{ id }} -->
       <hr>
       <v-layout row wrap class="mt-5">
         <v-flex xs3>
@@ -22,21 +21,30 @@
 
             <v-card-title>
               <div>
-                <span class="headline">{{ currentUser.reputation }}</span>
-                <span class="grey--text text-uppercase ml-2">reputation</span>
+                <span class="headline">
+                  {{ currentUser.reputation }}
+                </span>
+                <span class="grey--text text-uppercase ml-2">
+                  reputation
+                </span>
               </div>
             </v-card-title>
             <v-card-actions>
-              <v-btn depressed small color="yellow lighten-4" class="p-0">{{ currentUser.badge_counts.gold }}</v-btn>
-              <v-btn depressed small color="blue-grey lighten-4">{{ currentUser.badge_counts.silver }}</v-btn>
-              <v-btn depressed small color="orange lighten-4">{{ currentUser.badge_counts.bronze }}</v-btn>
+              <v-btn depressed small color="yellow lighten-4" class="p-0">
+                {{ currentUser.badge_counts.gold }}
+              </v-btn>
+              <v-btn depressed small color="blue-grey lighten-4">
+                {{ currentUser.badge_counts.silver }}
+              </v-btn>
+              <v-btn depressed small color="orange lighten-4">
+                {{ currentUser.badge_counts.bronze }}
+              </v-btn>
             </v-card-actions>
-
           </v-card>
         </v-flex>
 
         <v-flex xs6>
-          <h2>{{ currentUser.display_name}}</h2>
+          <h2>{{ currentUser.display_name }}</h2>
           <div>{{ currentUser.website_url }}</div>
           <div>User Id: {{ currentUser.id }}</div>
         </v-flex>
@@ -71,8 +79,8 @@ export default {
       return this.getById(+this.id) || {}
     }
   },
-  async created() {
-    if(!this.getById(+this.id)) {
+  async created () {
+    if (!this.getById(+this.id)) {
       await this.fetchUser(`?id=${+this.id}`)
     }
   },
@@ -93,4 +101,3 @@ export default {
     padding: 0 20px;
   }
 </style>
-
