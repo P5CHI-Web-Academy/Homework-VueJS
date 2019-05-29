@@ -1,28 +1,13 @@
 <template>
-  <div>
-    <v-layout row wrap>
-      <v-flex xs6>
-        <h1>Questions</h1>
-      </v-flex>
-
-      <v-flex xs6 class="text-xs-right">
-        <v-btn color="info">
-          Ask Question
-        </v-btn>
-      </v-flex>
-    </v-layout>
-
-    <Questions />
-  </div>
+  <QuestionList />
 </template>
 
 <script>
-import Questions from '../components/content/Questions'
-import Comments from '../components/content/Comments'
-import Answers from '../components/content/Answers'
+import QuestionList from '@/components/Questions/List'
+
 export default {
   name: 'Home',
-  components: { Questions, Comments, Answers }
+  components: { QuestionList }
 }
 </script>
 

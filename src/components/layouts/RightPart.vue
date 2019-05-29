@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import LastUserWidget from '@/components/user/LastUserWidget'
+import LastUserWidget from '@/components/User/LastUserWidget'
 export default {
   components: {
     LastUserWidget

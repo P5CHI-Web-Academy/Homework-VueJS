@@ -1,28 +1,29 @@
-<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
+<template>
   <div>
+    <p class="title text-lg-center">
+      Users
+    </p>
+    <v-text-field
+      label="Search"
+      @input="(q)=>fetchUsers({q})"
+    />
+    <div v-if="loading" class="text-xs-center mt-5">
+      <v-progress-circular
+        :width="1"
+        color="red"
+        :size="70"
+        indeterminate
+      />
+    </div>
 
-   <v-progress-linear :indeterminate="true" v-if="loading"></v-progress-linear>
-
-    <v-list-tile v-else
-      v-for="user in userList"
-      :key="user.id"
-      @click=""
-    >
-      <v-avatar class="mx-1"
-        size="30px"
+     <v-avatar v-for="user in userList" v-else :key="user.id" class="d-inline-flex ma-2" color="indigo">
+      <img
+        :src="user.profile_image"
+        alt="John"
       >
-        <img
-          :src="user.profile_image"
-          alt="Avatar"
-        >
-      </v-avatar>
-      <v-list-tile-content>
-        <v-list-tile-title>{{ user.display_name }}</v-list-tile-title>
-      </v-list-tile-content>
-    </v-list-tile>
+    </v-avatar>
   </div>
 </template>
-
 <script>
 import { mapActions, mapGetters } from 'vuex'
 export default {
@@ -33,12 +34,12 @@ export default {
     })
   },
   mounted () {
-    this.fetchUsers()
+    this.fetchUsers({ _limit: 52 })
   },
   methods: {
     ...mapActions({
       fetchUsers: 'user/fetch'
     })
   }
-}
+ }
 </script>

@@ -3,19 +3,17 @@
     <Header />
 
     <v-layout row wrap class="mt-4">
-
       <v-flex xs2>
         <LeftMenu />
       </v-flex>
 
-      <v-flex xs8>
+      <v-flex xs8 class="pa-5">
         <router-view />
       </v-flex>
 
       <v-flex xs2>
         <RightPart />
       </v-flex> 
-
     </v-layout>
   </div>
 </template>

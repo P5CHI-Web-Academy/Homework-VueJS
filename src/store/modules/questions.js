@@ -1,5 +1,9 @@
-import { fetchUsers } from '@/api/users'
+import { fetchQuestions } from '@/api/questions'
 
+export const formatRow = (row) => ({
+  ...row,
+  shortBody: row.body.replace(/<[^>]+>/g, '').substr(0, 200)
+})
 export default {
   namespaced: true,
   state: {
@@ -8,15 +12,15 @@ export default {
   },
   actions: {
     fetch ({ commit }, params) {
-      commit('mutateLoading',true)
-      fetchUsers(params)
-        .then(result => commit('mutateList', result.data))
+      commit('mutateLoading', true)
+      fetchQuestions(params)
+        .then(result => commit('mutateList', result.data.map(row => formatRow(row))))
         .finally(() => commit('mutateLoading', false))
     }
   },
   mutations: {
-    mutateList: (state, users) => {
-      state.list = users
+    mutateList: (state, questions) => {
+      state.list = questions
     },
     mutateLoading: (state, loading) => {
       state.loading = loading
