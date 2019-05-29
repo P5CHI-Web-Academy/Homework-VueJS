@@ -1,5 +1,12 @@
 <template>
   <div>
+    <p class="title text-lg-center">
+      Users
+    </p>
+    <v-text-field
+      label="Search"
+      @input="(q)=>fetchUsers(`?q=${q}&_limit=20`)"
+    />
     <div v-if="loading" class="text-xs-center">
       <v-progress-circular
         :size="50"
