@@ -5,7 +5,7 @@
         <h1>Questions</h1>
       </v-flex>
 
-       <v-flex xs6 class="text-xs-right">
+      <v-flex xs6 class="text-xs-right">
         <v-btn color="info">
           Ask Question
         </v-btn>
@@ -20,7 +20,7 @@
       />
     </div>
 
-     <div v-for="question in questions" v-else :key="question.id">
+    <div v-for="question in questions" v-else :key="question.id">
       <v-container>
         <v-layout row wrap>
           <v-flex xs2>
@@ -46,31 +46,27 @@
           </v-flex>
           <v-flex xs10>
             <div class="title">
-              {{ question.title }}
+              <router-link :to="{name: 'question', params: {id: question.id}}">
+                {{ question.title }}
+              </router-link>
             </div>
 
-             <div class="mt-3">
+            <div class="mt-3">
               {{ question.shortBody }}
             </div>
           </v-flex>
         </v-layout>
       </v-container>
-      <!--      <p class="title mt-5">-->
-      <!--      </p>-->
-      <!--      &lt;!&ndash; eslint-disable vue/no-v-html &ndash;&gt;-->
-
-       <!--      <div v-html="question.body" />-->
-      <!--      <hr>-->
       <v-divider />
     </div>
   </div>
 </template>
 
- <script>
+<script>
 import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'Home',
-   computed: {
+  computed: {
     ...mapGetters({
       questions: 'questions/getList',
       loading: 'questions/getLoading'
