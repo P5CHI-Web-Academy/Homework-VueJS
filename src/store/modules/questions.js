@@ -14,7 +14,10 @@ export default {
           commit('mutateQuestionList', result.data)
           return result
         })
-        .finally(() => commit('mutateLoading', false))
+        .catch(error => {
+          alert(error)
+        })
+        .then(() => commit('mutateLoading', false))
     }
   },
   mutations: {

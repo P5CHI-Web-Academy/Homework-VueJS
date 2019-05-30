@@ -36,7 +36,6 @@
         </v-flex>
       </v-flex>
     </v-layout>
-
   </div>
 </template>
 

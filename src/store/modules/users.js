@@ -15,14 +15,21 @@ export default {
           commit('mutateUserList', result.data)
           return result
         })
-        .finally(() => commit('mutateLoading', false))
+        .catch(error => {
+          alert(error)
+        })
+        .then(() => commit('mutateLoading', false))
     },
     fetchUserSearchResults: ({ commit }, query) => {
-      fetchUsers(query)
+      return fetchUsers(query)
         .then(result => {
           commit('mutateUsersSearchResults', result.data)
+          return result
         })
-    },
+        .catch(error => {
+          alert(error)
+        })
+    }
   },
   mutations: {
     mutateUserList: (state, users) => {

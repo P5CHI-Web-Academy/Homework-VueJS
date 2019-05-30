@@ -3,7 +3,7 @@ import { fetchTags } from '@/api/tags'
 export default {
   namespaced: true,
   state: {
-    tagsList: [],
+    tagsList: []
   },
   actions: {
     fetch: ({ commit }, params) => {
@@ -11,7 +11,10 @@ export default {
         .then(result => {
           commit('mutateTagsList', result.data)
           return result
-      })
+        })
+        .catch(error => {
+          alert(error)
+        })
     }
   },
   mutations: {
