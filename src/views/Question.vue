@@ -87,7 +87,7 @@ export default {
   },
   async created () {
     if (!this.getById(+this.id)) {
-      await this.fetchQuestion(`?id=${+this.id}`)
+      await this.fetchQuestion({ id: +this.id })
     }
   },
   methods: {

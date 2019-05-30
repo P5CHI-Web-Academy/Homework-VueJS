@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-layout row wrap class="ml-2">
-      <v-flex v-for="tag in tagsList" :key="tag.id" xs3>
+      <v-flex v-for="tag in tagsList" :key="tag.name" xs3>
         <v-divider light />
         <v-card class="my-2" color="transparent" flat>
           <v-card-title>

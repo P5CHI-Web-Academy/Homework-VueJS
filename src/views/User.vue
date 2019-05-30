@@ -81,7 +81,7 @@ export default {
   },
   async created () {
     if (!this.getById(+this.id)) {
-      await this.fetchUser(`?id=${+this.id}`)
+      await this.fetchUser({ id: +this.id })
     }
   },
   methods: {
