@@ -5,7 +5,7 @@
     </p>
     <v-text-field
       label="Search"
-      @input="(q)=>fetchUsers({ q, limit: 20 })"
+      @input="(q)=>fetchUsers({ q, '_limit': 20 })"
     />
     <div v-if="loading" class="text-xs-center">
       <v-progress-circular
@@ -56,7 +56,7 @@ export default {
     })
   },
   created () {
-    this.fetchUsers({ limit: 20 })
+    this.fetchUsers({ '_limit': 20 })
   },
   methods: {
     ...mapActions({

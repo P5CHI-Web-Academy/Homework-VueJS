@@ -6,9 +6,12 @@ export default {
     tagsList: [],
   },
   actions: {
-    fetch: ({ commit }) => {
-      fetchTags()
-        .then(result => commit('mutateTagsList', result.data))
+    fetch: ({ commit }, params) => {
+      return fetchTags(params)
+        .then(result => {
+          commit('mutateTagsList', result.data)
+          return result
+      })
     }
   },
   mutations: {

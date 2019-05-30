@@ -93,25 +93,25 @@ export default {
   },
   computed: {
     ...mapGetters({
-      resultQuestionsList: 'results/getResultQuestionsList',
-      resultUsersList: 'results/getResultUsersList',
-      resultTagsList: 'results/getResultTagsList'
+      resultQuestionsList: 'questions/getQuestionList',
+      resultUsersList: 'users/getUsersSearchResults',
+      resultTagsList: 'tags/getTagsList'
     }),
     currentQuestionsResult () {
-      this.fetchQuestionsSearchResults(this.query)
+      this.fetchQuestionsSearchResults({ q: this.query })
     },
     currentUsersResult () {
-      this.fetchUsersSearchResults(this.query)
+      this.fetchUsersSearchResults({ q: this.query })
     },
     currentTagsResult () {
-      this.fetchTagsSearchResults(this.query)
+      this.fetchTagsSearchResults({ q: this.query })
     }
   },
   methods: {
     ...mapActions({
-      fetchQuestionsSearchResults: 'results/fetchQuestions',
-      fetchUsersSearchResults: 'results/fetchUsers',
-      fetchTagsSearchResults: 'results/fetchTags'
+      fetchQuestionsSearchResults: 'questions/fetch',
+      fetchUsersSearchResults: 'users/fetchUserSearchResults',
+      fetchTagsSearchResults: 'tags/fetch'
     })
   }
 }

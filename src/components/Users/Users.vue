@@ -51,7 +51,7 @@ export default {
     })
   },
   created () {
-    this.fetchUsers({ limit: 20 })
+    this.fetchUsers({ '_limit': 20 })
   },
   methods: {
     ...mapActions({
