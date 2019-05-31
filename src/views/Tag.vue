@@ -17,11 +17,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Progress from "../components/Progress";
+import Progress from '../components/Progress'
 
 export default {
   name: 'Tag',
-  components: {Progress},
+  components: { Progress },
   props: {
     name: {
       type: [String],

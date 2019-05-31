@@ -28,12 +28,12 @@
 </template>
 
 <script>
-  import {mapActions, mapGetters} from 'vuex'
-  import Progress from "../components/Progress";
+import { mapActions, mapGetters } from 'vuex'
+import Progress from '../components/Progress'
 
 export default {
   name: 'User',
-  components: {Progress},
+  components: { Progress },
   props: {
     id: {
       type: [Number, String],
@@ -45,10 +45,10 @@ export default {
       getById: 'user/getById',
       loading: 'user/getLoading'
     }),
-    user() {
+    user () {
       let element = this.getById(parseInt(this.id))
       if (!element) {
-        this.fetchUsers({id: this.id})
+        this.fetchUsers({ id: this.id })
       }
 
       return this.getById(parseInt(this.id)) || {

@@ -1,5 +1,5 @@
 <template>
-  <v-tooltip top v-if="!loading">
+  <v-tooltip v-if="!loading" top>
     <template v-slot:activator="{ on }">
       <router-link :to="{name: 'user', params: {id: user.id}}">
         <v-avatar class="d-inline-flex ma-2" color="indigo">
@@ -22,20 +22,18 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 import { fetchUsers } from '@/api/users'
-import Progress from "../Progress";
 
 export default {
   name: 'Preview',
-  components: {Progress},
   props: {
-    user_id: {
+    userId: {
       type: Number,
       required: true
     }
   },
-  data() {
+  data () {
     return {
       loading: false,
       user: null
@@ -46,11 +44,11 @@ export default {
       getById: 'user/getById'
     })
   },
-  created() {
-    let element = this.getById(this.user_id)
+  created () {
+    let element = this.getById(this.userId)
     if (element === undefined) {
       this.loading = true
-      fetchUsers({id: this.user_id})
+      fetchUsers({ id: this.userId })
         .then(result => {
           this.user = result.data[0]
         })

@@ -8,23 +8,23 @@
     </div>
 
     <div v-for="user in userList" v-else :key="user.id" style="display: inline-block">
-      <Preview :user_id="user.id" />
+      <Preview :user-id="user.id" />
     </div>
   </div>
 </template>
 
 <script>
 import Preview from '../components/User/Preview'
-import Progress from "../components/Progress";
-import {mapActions, mapGetters} from "vuex";
+import Progress from '../components/Progress'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'Users',
-  components: {Progress, Preview },
+  components: { Progress, Preview },
   computed: {
     ...mapGetters({
       userList: 'user/getList',
-      loading: 'user/getLoading',
+      loading: 'user/getLoading'
     })
   },
   created () {

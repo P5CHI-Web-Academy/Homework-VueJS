@@ -13,7 +13,7 @@
 
     <div v-else>
       <div v-for="user in userList" :key="user.id" style="display: inline-block">
-        <Preview :user_id="user.id" />
+        <Preview :user-id="user.id" />
       </div>
     </div>
   </div>
@@ -22,12 +22,11 @@
 <script>
 import { fetchUsers } from '@/api/users'
 import Preview from './Preview'
-import Progress from "../Progress";
-
+import Progress from '../Progress'
 
 export default {
   name: 'LastUserWidget',
-  components: {Progress, Preview },
+  components: { Progress, Preview },
   data () {
     return {
       userList: [],
@@ -35,11 +34,11 @@ export default {
     }
   },
   created () {
-    this.fetchUsers({_limit: 51})
+    this.fetchUsers({ _limit: 51 })
   },
   methods: {
     fetchUsers: function (params) {
-      this.loading = true;
+      this.loading = true
       fetchUsers(params)
         .then(result => {
           this.userList = result.data

@@ -40,9 +40,9 @@
 </template>
 
 <script>
-  import {fetchQuestions} from '@/api/questions'
-  import { fetchTags } from '@/api/tags'
-  import {fetchUsers} from '@/api/users'
+import { fetchQuestions } from '@/api/questions'
+import { fetchTags } from '@/api/tags'
+import { fetchUsers } from '@/api/users'
 
 export default {
   name: 'Header',
@@ -123,17 +123,17 @@ export default {
       this.isLoading = true
 
       // Lazily load input items
-      fetchQuestions({q: val})
+      fetchQuestions({ q: val })
         .then(result => {
           this.entriesQuestions = result.data
         })
         .finally(() => (this.isLoading = false))
-      fetchUsers({q: val})
+      fetchUsers({ q: val })
         .then(result => {
           this.entriesUsers = result.data
         })
         .finally(() => (this.isLoading = false))
-      fetchTags({q: val})
+      fetchTags({ q: val })
         .then(result => {
           this.entriesTags = result.data
         })

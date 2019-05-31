@@ -62,10 +62,10 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import Progress from "../Progress";
+import Progress from '../Progress'
 export default {
   name: 'Home',
-  components: {Progress},
+  components: { Progress },
   computed: {
     ...mapGetters({
       questions: 'questions/getList',
