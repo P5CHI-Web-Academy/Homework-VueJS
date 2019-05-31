@@ -3,19 +3,23 @@
     <v-list dense class="pt-0">
       <v-list-tile>
         <v-list-tile-content>
-          <v-list-tile-title>Home</v-list-tile-title>
+          <v-list-tile-title>
+            <router-link :to="{name: 'home'}">Home</router-link>
+          </v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
 
       <v-list-tile>
         <v-list-tile-content>
-          <v-list-tile-title>Tags</v-list-tile-title>
+          <router-link :to="{name: 'tags'}">Tags</router-link>
         </v-list-tile-content>
       </v-list-tile>
 
       <v-list-tile>
         <v-list-tile-content>
-          <v-list-tile-title>Users</v-list-tile-title>
+          <v-list-tile-title>
+            <router-link :to="{name: 'users'}">Users</router-link>
+          </v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
     </v-list>     

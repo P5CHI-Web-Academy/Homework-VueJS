@@ -5,6 +5,7 @@ import Home from '@/views/Home'
 import Question from '../views/Question'
 import User from '../views/User';
 import Users from '../views/Users';
+import Tags from '../views/Tags';
 
 Vue.use(Router)
 
@@ -39,6 +40,11 @@ export default new Router({
           path: 'users',
           name: 'users',
           component: Users
+        },
+        {
+          path: 'tags',
+          name: 'tags',
+          component: Tags
         }
       ]
     }

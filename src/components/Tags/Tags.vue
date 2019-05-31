@@ -1,19 +1,20 @@
 <template>
  <div>
-   <div v-for="user in users">
-     {{ user.display_name }}
+   <div v-for="tag in tags">
+     {{ tag.name }}
    </div>
  </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+
 export default {
-  name: 'List',
+  name: 'Tags',
   computed: {
     ...mapGetters({
-      users: 'user/getList',
-      loading: 'user/getLoading'
+      tags: 'tag/getList',
+      loading: 'tag/getLoading'
     })
   },
   created () {
@@ -21,7 +22,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      fetch: 'user/fetch'
+      fetch: 'tag/fetch'
     })
   }
 }
