@@ -40,6 +40,10 @@
 </template>
 
 <script>
+  import {fetchQuestions} from '@/api/questions'
+  import { fetchTags } from '@/api/tags'
+  import {fetchUsers} from '@/api/users'
+
 export default {
   name: 'Header',
   data: () => ({
@@ -119,32 +123,19 @@ export default {
       this.isLoading = true
 
       // Lazily load input items
-      fetch('http://localhost:3001/questions?q=' + val)
-        .then(res => res.json())
-        .then(res => {
-          this.entriesQuestions = res
-        })
-        .catch(err => {
+      fetchQuestions({q: val})
+        .then(result => {
+          this.entriesQuestions = result.data
         })
         .finally(() => (this.isLoading = false))
-
-      // Lazily load input items
-      fetch('http://localhost:3001/users?q=' + val)
-        .then(res => res.json())
-        .then(res => {
-          this.entriesUsers = res
-        })
-        .catch(err => {
+      fetchUsers({q: val})
+        .then(result => {
+          this.entriesUsers = result.data
         })
         .finally(() => (this.isLoading = false))
-
-      // Lazily load input items
-      fetch('http://localhost:3001/tags?q=' + val)
-        .then(res => res.json())
-        .then(res => {
-          this.entriesTags = res
-        })
-        .catch(err => {
+      fetchTags({q: val})
+        .then(result => {
+          this.entriesTags = result.data
         })
         .finally(() => (this.isLoading = false))
     }
