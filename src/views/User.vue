@@ -8,28 +8,28 @@
       <h2>
         <v-avatar class="d-inline-flex ma-2" color="indigo">
           <img
-            :src="element.profile_image"
+            :src="user.profile_image"
             alt="element.display_name"
           >
         </v-avatar>
-        {{ element.display_name }}
+        {{ user.display_name }}
       </h2>
       <h3>
-        {{ element.location }}
+        {{ user.location }}
       </h3>
-      <h5>Reputation: {{ element.reputation }}</h5>
+      <h5>Reputation: {{ user.reputation }}</h5>
       <div>
-        <p>Gold: {{ element.badge_counts.gold }}</p>
-        <p>Silver: {{ element.badge_counts.silver }}</p>
-        <p>Bronze: {{ element.badge_counts.bronze }}</p>
+        <p>Gold: {{ user.badge_counts.gold }}</p>
+        <p>Silver: {{ user.badge_counts.silver }}</p>
+        <p>Bronze: {{ user.badge_counts.bronze }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import Progress from "../components/Progress";
+  import {mapActions, mapGetters} from 'vuex'
+  import Progress from "../components/Progress";
 
 export default {
   name: 'User',
@@ -45,8 +45,14 @@ export default {
       getById: 'user/getById',
       loading: 'user/getLoading'
     }),
-    element: function () {
+    user() {
+      let element = this.getById(parseInt(this.id))
+      if (!element) {
+        this.fetchUsers({id: this.id})
+      }
+
       return this.getById(parseInt(this.id)) || {
+        profile_image: '',
         badge_counts: {
           gold: 0,
           silver: 0,
@@ -54,6 +60,11 @@ export default {
         }
       }
     }
+  },
+  methods: {
+    ...mapActions({
+      fetchUsers: 'user/fetch'
+    })
   }
 }
 </script>

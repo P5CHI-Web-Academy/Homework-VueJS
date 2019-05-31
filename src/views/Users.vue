@@ -8,33 +8,32 @@
     </div>
 
     <div v-for="user in userList" v-else :key="user.id" style="display: inline-block">
-      <Preview :user="user" />
+      <Preview :user_id="user.id" />
     </div>
   </div>
 </template>
 
 <script>
 import Preview from '../components/User/Preview'
-import { fetchUsers } from '@/api/users'
 import Progress from "../components/Progress";
+import {mapActions, mapGetters} from "vuex";
 
 export default {
   name: 'Users',
   components: {Progress, Preview },
-  data () {
-    return {
-      userList: [],
-      loading: true
-    }
+  computed: {
+    ...mapGetters({
+      userList: 'user/getList',
+      loading: 'user/getLoading',
+    })
   },
   created () {
-    fetchUsers({})
-      .then(result => {
-        this.userList = result.data
-      })
-      .finally(() => {
-        this.loading = false
-      })
+    this.fetchUsers({})
+  },
+  methods: {
+    ...mapActions({
+      fetchUsers: 'user/fetch'
+    })
   }
 }
 </script>

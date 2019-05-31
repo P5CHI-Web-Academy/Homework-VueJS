@@ -2,7 +2,7 @@
   <v-progress-circular
     :width="3"
     color="purple"
-    :size="70"
+    :size="60"
     indeterminate
   />
 </template>
