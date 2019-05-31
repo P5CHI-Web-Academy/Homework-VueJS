@@ -1,20 +1,33 @@
 <template>
   <div>
-    <div v-for="user in users" :key="user.id">
-      <v-layout align-center mb-2>
-        <v-avatar color="grey" class="mr-2" tile>
-          <img
-          :src="user.profile_image"
-          alt="John"
+    <div v-if="loading" class="text-xs-center mt-5">
+      <v-progress-circular
+        :width="1"
+        color="red"
+        :size="70"
+        indeterminate
+      />
+    </div>
+    <div>
+      
+    </div v-else>
+      <h2>All Users List</h2>
+      <div v-for="user in users" :key="user.id" >
+        <v-layout align-center mb-2>
+          <v-avatar color="grey" class="mr-2" tile>
+            <img
+            :src="user.profile_image"
+            alt="John"
+            >
+          </v-avatar>
+          <router-link 
+          :to="{name: 'user', params: {id: user.id}}" 
+          v-html="user.display_name"
           >
-        </v-avatar>
-        <router-link 
-        :to="{name: 'user', params: {id: user.id}}" 
-        v-html="user.display_name"
-        >
-        </router-link>
-        <div class="ml-2" v-html="user.location"></div>
-      </v-layout>
+          </router-link>
+          <div class="ml-2" v-html="user.location"></div>
+        </v-layout>
+      </div>
     </div>
   </div>
 </template>
@@ -25,8 +38,8 @@ export default {
   name: 'List',
   computed: {
     ...mapGetters({
-      users: 'user/getList',
-      loading: 'user/getLoading'
+      users: 'user/getAllList',
+      loading: 'user/getLoadingAll'
     })
   },
   created () {
@@ -34,7 +47,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      fetch: 'user/fetch'
+      fetch: 'user/fetchAll'
     })
   }
 }
