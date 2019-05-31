@@ -1,7 +1,9 @@
 <template>
   <div>
-    <h2 class="mb-2">Tag Cloud</h2>
-    <div v-for="tag in tags" :key="tag.id" class='tag-container'>
+    <h2 class="mb-2">
+      Tag Cloud
+    </h2>
+    <div v-for="tag in tags" :key="tag.id" class="tag-container">
       <a>{{ tag.name }}</a>
     </div>
   </div>
