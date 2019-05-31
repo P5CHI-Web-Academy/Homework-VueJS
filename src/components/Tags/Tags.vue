@@ -1,7 +1,8 @@
 <template>
   <div>
-    <div v-for="tag in tags" :key="tag.name">
-      {{ tag.name }}
+    <h2 class="mb-2">Tag Cloud</h2>
+    <div v-for="tag in tags" :key="tag.id" class='tag-container'>
+      <a>{{ tag.name }}</a>
     </div>
   </div>
 </template>
@@ -27,3 +28,22 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .tag-container a {
+    padding: 5px 15px;
+    border: 3px solid #ccc;
+    float: left;
+    margin-left: -3px;
+    margin-top: -3px;
+    color: #666;
+    transition: ease-in-out all 0.4s;
+  }
+
+  .tag-container a:hover {
+    color: #e74c3c;
+    border: 3px solid #e74c3c;
+    position: relative;
+    z-index: 2
+  }
+</style>

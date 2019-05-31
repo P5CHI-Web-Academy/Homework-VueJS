@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="mb-2">
-      <router-link :to="{name: 'home'}">Click to go back</router-link>  
+      <router-link :to="{name: 'home'}">Home</router-link>  
     </div>
       <v-layout align-center mb-3>
         <v-avatar color="grey" class="mr-3">
