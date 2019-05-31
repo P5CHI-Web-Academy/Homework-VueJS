@@ -4,6 +4,7 @@ import CommonLayout from '@/components/layouts/CommonLayout'
 import Home from '@/views/Home'
 import Question from '../views/Question'
 import User from '../views/User';
+import Users from '../views/Users';
 
 Vue.use(Router)
 
@@ -33,6 +34,11 @@ export default new Router({
           'params': ['id'],
           props: true,
           component: User
+        },
+        {
+          path: 'users',
+          name: 'users',
+          component: Users
         }
       ]
     }
