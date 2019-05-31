@@ -1,9 +1,9 @@
 <template>
- <div>
-   <div v-for="tag in tags">
-     {{ tag.name }}
-   </div>
- </div>
+  <div>
+    <div v-for="tag in tags" :key="tag.name">
+      {{ tag.name }}
+    </div>
+  </div>
 </template>
 
 <script>
