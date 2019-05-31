@@ -11,8 +11,10 @@
       <Progress />
     </div>
 
-    <div v-for="user in userList" v-else :key="user.id" style="display: inline-block">
-      <Preview :user_id="user.id" />
+    <div v-else>
+      <div v-for="user in userList" :key="user.id" style="display: inline-block">
+        <Preview :user_id="user.id" />
+      </div>
     </div>
   </div>
 </template>
