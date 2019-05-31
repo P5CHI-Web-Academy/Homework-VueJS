@@ -24,6 +24,7 @@ export default {
   },
   getters: {
     getList: (state) => state.list,
-    getLoading: (state) => state.loading
+    getLoading: (state) => state.loading,
+    getById: (state) => (id) => state.list.find(element => element.id === id),
   }
 }

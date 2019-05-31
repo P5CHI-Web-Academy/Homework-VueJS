@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="mb-2">
+      <router-link :to="{name: 'home'}">Back to all questions</router-link>  
+    </div>
     <h3>{{ element.title }}</h3>
     <div v-html="element.body"></div>
   </div>
