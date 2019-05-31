@@ -4,12 +4,7 @@
       Users
     </h2>
     <div v-if="loading" class="text-xs-center mt-5">
-      <v-progress-circular
-        :width="1"
-        color="red"
-        :size="70"
-        indeterminate
-      />
+      <Progress />
     </div>
 
     <div v-for="user in userList" v-else :key="user.id" style="display: inline-block">
@@ -21,10 +16,11 @@
 <script>
 import Preview from '../components/User/Preview'
 import { fetchUsers } from '@/api/users'
+import Progress from "../components/Progress";
 
 export default {
   name: 'Users',
-  components: { Preview },
+  components: {Progress, Preview },
   data () {
     return {
       userList: [],
@@ -33,8 +29,12 @@ export default {
   },
   created () {
     fetchUsers({})
-      .then(result => this.userList = result.data)
-      .finally(() => this.loading = false)
+      .then(result => {
+        this.userList = result.data
+      })
+      .finally(() => {
+        this.loading = false
+      })
   }
 }
 </script>

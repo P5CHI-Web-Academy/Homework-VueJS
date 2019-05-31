@@ -1,12 +1,7 @@
 <template>
   <div>
     <div v-if="loading" class="text-xs-center mt-5">
-      <v-progress-circular
-        :width="1"
-        color="red"
-        :size="70"
-        indeterminate
-      />
+      <Progress />
     </div>
 
     <div v-else>
@@ -34,9 +29,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import Progress from "../components/Progress";
 
 export default {
   name: 'User',
+  components: {Progress},
   props: {
     id: {
       type: [Number, String],

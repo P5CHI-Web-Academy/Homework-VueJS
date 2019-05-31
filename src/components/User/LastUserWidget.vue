@@ -8,12 +8,7 @@
       @input="(q)=>fetchUsers({q})"
     />
     <div v-if="loading" class="text-xs-center mt-5">
-      <v-progress-circular
-        :width="1"
-        color="red"
-        :size="70"
-        indeterminate
-      />
+      <Progress />
     </div>
 
     <div v-for="user in userList" v-else :key="user.id" style="display: inline-block">
@@ -25,10 +20,11 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import Preview from './Preview'
+import Progress from "../Progress";
 
 export default {
   name: 'LastUserWidget',
-  components: { Preview },
+  components: {Progress, Preview },
   computed: {
     ...mapGetters({
       userList: 'user/getList',

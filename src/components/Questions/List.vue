@@ -12,12 +12,7 @@
       </v-flex>
     </v-layout>
     <div v-if="loading" class="text-xs-center mt-5">
-      <v-progress-circular
-        :width="1"
-        color="red"
-        :size="70"
-        indeterminate
-      />
+      <Progress />
     </div>
 
     <div v-for="question in questions" v-else :key="question.id">
@@ -65,9 +60,10 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import Progress from "../Progress";
 export default {
   name: 'Home',
-
+  components: {Progress},
   computed: {
     ...mapGetters({
       questions: 'questions/getList',

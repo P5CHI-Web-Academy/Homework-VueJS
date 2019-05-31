@@ -18,7 +18,7 @@ export default {
     })
   },
   created () {
-    this.fetchComments()
+    this.fetchComments({_limit: 5})
   },
   methods: {
     ...mapActions({

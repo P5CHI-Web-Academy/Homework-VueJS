@@ -7,8 +7,8 @@ export default {
     loading: false
   },
   actions: {
-    fetch ({ commit }) {
-      fetchComments()
+    fetch ({ commit }, params) {
+      fetchComments(params)
         .then(result => commit('mutateList', result.data))
     }
   },

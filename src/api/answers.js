@@ -1,3 +1,3 @@
 import API from './api'
 
-export const fetchAnswers = (param) => API.get('/answers?_limit=3')
+export const fetchAnswers = (params) => API.get('/answers', { params })
