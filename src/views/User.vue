@@ -33,24 +33,19 @@ export default {
   },
   computed: {
     ...mapGetters({
-      getById: 'user/getById',
-      list: 'user/getList'
+      getProfile: 'profile/getProfile'
     }),
     user: function () {
-      return this.getById(parseInt(this.id)) || {}
+      return this.getProfile(parseInt(this.id)) || {}
     }
   },
   methods: {
     ...mapActions({
-      fetchUser: 'user/fetch'
+      fetchUser: 'profile/fetch'
     })
   },
   async mounted() {
-    if (!this.getById(this.id)) {
-      this.fetchUser({
-        id:this.id
-      })
-    }
+    this.fetchUser()
   }
 }
 </script>

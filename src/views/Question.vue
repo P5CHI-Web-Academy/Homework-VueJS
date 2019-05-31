@@ -21,7 +21,6 @@ export default {
   computed: {
     ...mapGetters({
       getById: 'questions/getById',
-      list: 'questions/getList'
     }),
     element: function () {
       return this.getById(parseInt(this.id)) || {}
