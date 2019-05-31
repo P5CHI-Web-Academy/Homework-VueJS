@@ -125,7 +125,6 @@ export default {
           this.entriesQuestions = res
         })
         .catch(err => {
-          console.log(err)
         })
         .finally(() => (this.isLoading = false))
 
@@ -136,7 +135,6 @@ export default {
           this.entriesUsers = res
         })
         .catch(err => {
-          console.log(err)
         })
         .finally(() => (this.isLoading = false))
 
@@ -147,7 +145,6 @@ export default {
           this.entriesTags = res
         })
         .catch(err => {
-          console.log(err)
         })
         .finally(() => (this.isLoading = false))
     }
