@@ -17,14 +17,14 @@
           <v-list-tile v-for="question in questionsList" :key="question.id" avatar>
             <router-link :to="{name: 'question', params: {id: question.id}}">
               <v-list-tile-content>
-                <v-list-tile-title>{{ question.title }}</v-list-tile-title>
+                <v-list-tile-title @click="reset">{{ question.title }}</v-list-tile-title>
               </v-list-tile-content>
             </router-link>
           </v-list-tile>
 
           <v-list-tile v-for="tag in tagsList" :key="tag.name" avatar>
             <v-list-tile-content>
-              <v-list-tile-title>{{ tag.name }}</v-list-tile-title>
+              <v-list-tile-title @click="reset">{{ tag.name }}</v-list-tile-title>
             </v-list-tile-content>
             </v-list-tile> 
 
