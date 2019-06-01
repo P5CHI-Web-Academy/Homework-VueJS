@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import {mapGetters, mapActions} from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   props: {
@@ -16,23 +16,23 @@ export default {
   },
   computed: {
     ...mapGetters({
-      getByCount: 'tag/getByCount',
+      getByCount: 'tag/getByCount'
     }),
     tag: function () {
       return this.getByCount(parseInt(this.count)) || {}
+    }
+  },
+  async mounted () {
+    if (!this.getByCount(parseInt(this.count))) {
+      this.fetchTag({
+        count: this.count
+      })
     }
   },
   methods: {
     ...mapActions({
       fetchTag: 'tag/fetch'
     })
-  },
-  async mounted() {
-    if (!this.getByCount(parseInt(this.count))) {
-      this.fetchTag({
-        count:this.count
-      })
-    }
   }
 }
 </script>

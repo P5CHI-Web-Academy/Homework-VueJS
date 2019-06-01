@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="mb-2">
-      <router-link :to="{name: 'home'}">Back to all questions</router-link>  
+      <router-link :to="{name: 'home'}">Back to all questions</router-link>
     </div>
     <h3>{{ element.title }}</h3>
     <div v-html="element.body"></div>
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import {mapGetters, mapActions} from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   props: {
@@ -20,23 +20,23 @@ export default {
   },
   computed: {
     ...mapGetters({
-      getById: 'questions/getById',
+      getById: 'questions/getById'
     }),
     element: function () {
       return this.getById(parseInt(this.id)) || {}
+    }
+  },
+  async mounted () {
+    if (!this.getById(this.id)) {
+      this.fetchQuestion({
+        id: this.id
+      })
     }
   },
   methods: {
     ...mapActions({
       fetchQuestion: 'questions/fetch'
     })
-  },
-  async mounted() {
-    if (!this.getById(this.id)) {
-      this.fetchQuestion({
-        id:this.id
-      })
-    }
   }
 }
 </script>
