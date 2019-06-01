@@ -3,7 +3,9 @@ import Router from 'vue-router'
 import CommonLayout from '@/components/layouts/CommonLayout'
 import Home from '@/views/Home'
 import Question from '@/views/Question'
-// import Login from '@/views/Login'
+import Tags from '@/views/Tags'
+import Users from '@/views/Users'
+import User from '@/views/User'
 
 Vue.use(Router)
 
@@ -26,9 +28,25 @@ export default new Router({
           params: ['id'],
           props: true,
           component: Question
+        },
+        {
+          path: 'tags',
+          name: 'tags',
+          component: Tags
+        },
+        {
+          path: 'users',
+          name: 'users',
+          component: Users
+        },
+        {
+          path: 'user/:id',
+          name: 'user',
+          params: ['id'],
+          props: true,
+          component: User
         }
       ]
     }
-
   ]
 })

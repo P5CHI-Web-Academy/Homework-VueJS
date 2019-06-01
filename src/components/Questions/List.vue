@@ -46,7 +46,7 @@
           </v-flex>
           <v-flex xs10>
             <div class="title">
-              <router-link :to="{name:'question',params:{id:question.id}}">
+              <router-link :to="{name:'question', params: { id:question.id }}">
                 {{ question.title }}
               </router-link>
             </div>
@@ -72,7 +72,6 @@
 import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'Home',
-
   computed: {
     ...mapGetters({
       questions: 'questions/getList',

@@ -3,27 +3,21 @@ import { fetchUsers } from '@/api/users'
 export default {
   namespaced: true,
   state: {
-    list: [],
-    loading: false
+    list: []
   },
   getters: {
     getList: (state) => state.list,
-    getLoading: (state) => state.loading
+    getById: (state) => (id) => state.list.filter(el => el.id === id)
   },
   mutations: {
     mutateList: (state, users) => {
       state.list = users
-    },
-    mutateLoading: (state, loading) => {
-      state.loading = loading
     }
   },
   actions: {
     fetch ({ commit }, params) {
-      commit('mutateLoading', true)
       fetchUsers(params)
         .then(result => commit('mutateList', result.data))
-        .finally(() => commit('mutateLoading', false))
     }
   }
 }

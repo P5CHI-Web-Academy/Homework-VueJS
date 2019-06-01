@@ -1,3 +1,5 @@
 export { default as user } from './user'
+export { default as users } from './users'
 export { default as questions } from './questions'
+export { default as tags } from './tags'
 export { default as searchPanel } from './searchPanel'

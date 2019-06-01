@@ -2,45 +2,48 @@
   <div class="search-result">
     <v-layout row>
       <v-flex>
-        <v-card class="mx-auto" width="650">
+        <v-card class="mx-auto" width="650" v-if="searchPanelValue">
           <v-list two-line subheader>
             <v-subheader inset>Users</v-subheader>
 
             <v-divider inset></v-divider>
 
-            <v-list-tile v-for="user in usersList" :key="user.id" avatar>
-              <v-list-tile-avatar>
-                <img :src="user.profile_image" alt="John">
-              </v-list-tile-avatar>
+            <v-list-tile v-for="user in usersList" :key="user.id" avatar @click.capture="resetSearchPanelValue">
+              <router-link :to="{ name: 'user', params: { id: user.id } }">
+                <div class="inline">
+                  <v-list-tile-avatar>
+                    <img :src="user.profile_image" alt="John">
+                  </v-list-tile-avatar>
+                </div>
 
-              <v-list-tile-content>
-                <v-list-tile-title v-html="user.display_name"></v-list-tile-title>
-              </v-list-tile-content>
+                <div class="inline">
+                  <v-list-tile-title v-html="user.display_name"></v-list-tile-title>
+                </div>
+              </router-link>
             </v-list-tile>
 
             <v-divider inset></v-divider>
-  
-          <v-subheader inset>Questions</v-subheader>
-            
-          <v-divider inset></v-divider>
-  
-          <v-list-tile v-for="question in questionsList" :key="question.id" avatar>
-            <v-list-tile-content>
-              <v-list-tile-title>{{ question.title }}</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-            
-          <v-divider inset></v-divider>
-  
-          <v-subheader inset>Tags</v-subheader>
-            
-          <v-divider inset></v-divider>
-  
-          <v-list-tile v-for="tag in tagsList" :key="tag.name" avatar>
-            <v-list-tile-content>
+
+            <v-subheader inset>Questions</v-subheader>
+
+            <v-divider inset></v-divider>
+
+            <v-list-tile
+              v-for="question in questionsList"
+              :key="question.id"
+            >
+              <router-link :to="{ name: 'question', params: { id: question.id } }">
+                <v-list-tile-title>{{ question.title }}</v-list-tile-title>
+              </router-link>
+            </v-list-tile>
+
+            <v-divider inset></v-divider>
+            <v-subheader inset>Tags</v-subheader>
+            <v-divider inset></v-divider>
+
+            <v-list-tile v-for="tag in tagsList" :key="tag.name">
               <v-list-tile-title>{{ tag.name }}</v-list-tile-title>
-            </v-list-tile-content>
-            </v-list-tile> 
+            </v-list-tile>
           </v-list>
         </v-card>
       </v-flex>
@@ -49,17 +52,22 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from "vuex";
 export default {
-  name: 'SearchResult',
+  name: "SearchResult",
   computed: {
     ...mapGetters({
-      usersList: 'searchPanel/getUsersList',
-      questionsList: 'searchPanel/getQuestionsList',
-      tagsList: 'searchPanel/getTagsList'
+      searchPanelValue: "searchPanel/getSearchPanelValue",
+      usersList: "searchPanel/getUsersList",
+      questionsList: "searchPanel/getQuestionsList",
+      tagsList: "searchPanel/getTagsList"
+    }),
+    ...mapActions({
+      changeSearchPanelValue: "searchPanel/mutateSearchPanelValue",
+      resetSearchPanelValue: "searchPanel/resetSearchPanelValue"
     })
   }
-}
+};
 </script>
 
 <style scoped>
@@ -68,5 +76,8 @@ export default {
   z-index: 999;
   top: 52px;
   left: calc(50% - 692px / 2);
+}
+.inline {
+  display: inline-block;
 }
 </style>

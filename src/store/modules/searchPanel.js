@@ -20,6 +20,9 @@ export default {
     mutateSearchPanelValue: (state, q) => {
       state.searchPanelValue = q
     },
+    resetSearchPanelValue: state => {
+      state.searchPanelValue = ''
+    },
     mutateUsersList: (state, users) => {
       state.usersList = users
     },
@@ -34,24 +37,27 @@ export default {
     mutateSearchPanelValue ({ commit }, q) {
       commit('mutateSearchPanelValue', q)
     },
+    resetSearchPanelValue ({ commit }) {
+      commit('resetSearchPanelValue')
+    },
     mutateUsersList ({ commit }, params) {
       fetchUsers(params)
         .then(result => {
-          const data = result.data.filter(el => el.display_name.indexOf(params) !== -1).slice(0, 3)
+          const data = result.data.filter(el => el.display_name.toLowerCase().indexOf(params) !== -1).slice(0, 3)
           commit('mutateUsersList', data)
         })
     },
     mutateQuestionsList ({ commit }, params) {
       fetchQuestions(params)
         .then(result => {
-          const data = result.data.filter(el => el.title.indexOf(params) !== -1).slice(0, 3)
+          const data = result.data.filter(el => el.title.toLowerCase().indexOf(params) !== -1).slice(0, 3)
           commit('mutateQuestionsList', data)
         })
     },
     mutateTagsList ({ commit }, params) {
       fetchTags(params)
         .then(result => {
-          const data = result.data.filter(el => el.name.indexOf(params) !== -1).slice(0, 3)
+          const data = result.data.filter(el => el.name.toLowerCase().indexOf(params) !== -1).slice(0, 3)
           commit('mutateTagsList', data)
         })
     }

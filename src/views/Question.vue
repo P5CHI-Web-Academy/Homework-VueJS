@@ -1,14 +1,12 @@
 <template>
   <div>
-    {{ element.title }}
-    {{ element.body }}
+    <h2 v-html='element.title'></h2>
+    <hr>
+    <div v-html='element.body' class="element-body"></div>
   </div>
 </template>
 <script>
-import {
-  mapGetters,
-  mapActions
-} from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   props: {
     id: {
@@ -24,9 +22,7 @@ export default {
     element: function () {
       return this.getById(parseInt(this.id)) || {}
     }
-
   },
-
   async mounted () {
     if (!this.getById(parseInt(this.id))) {
       await this.fetchQuestion({
@@ -41,3 +37,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .element-body {
+    margin-top: 20px;
+  }
+</style>
