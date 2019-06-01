@@ -3,8 +3,10 @@
     <h2 class="mb-2">
       Tag Cloud
     </h2>
-    <div v-for="tag in tags" :key="tag.id" class="tag-container">
-      <a>{{ tag.name }}</a>
+    <div v-for="tag in tags" :key="tag.name" class="tag-container">
+      <router-link :to="{name: 'tag', params: {count: tag.count}}">
+        {{ tag.name }}
+      </router-link>
     </div>
   </div>
 </template>

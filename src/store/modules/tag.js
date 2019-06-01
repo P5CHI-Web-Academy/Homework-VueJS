@@ -25,5 +25,6 @@ export default {
   getters: {
     getList: (state) => state.list,
     getLoading: (state) => state.loading,
+    getByCount: (state) => (count) => state.list.find(element => element.count === count)
   }
 }

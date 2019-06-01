@@ -6,6 +6,7 @@ import Question from '../views/Question'
 import User from '../views/User';
 import Users from '../views/Users';
 import Tags from '../views/Tags';
+import Tag from '../views/Tag';
 
 Vue.use(Router)
 
@@ -45,6 +46,13 @@ export default new Router({
           path: 'tags',
           name: 'tags',
           component: Tags
+        },
+        {
+          path: 'tag/:count',
+          'params': ['count'],
+          props: true,
+          name: 'tag',
+          component: Tag
         }
       ]
     }
