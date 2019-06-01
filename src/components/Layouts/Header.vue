@@ -38,11 +38,15 @@ export default {
   methods: {
     ...mapActions({
       changeValue: 'searchPanel/mutateSearchPanelValue',
-      fetchUsers: 'searchPanel/mutateUsersList'
+      fetchUsers: 'searchPanel/mutateUsersList',
+      fetchQuestions: 'searchPanel/mutateQuestionsList',
+      fetchTags: 'searchPanel/mutateTagsList'
     }),
     updateValue (q) {
       this.changeValue(q)
       this.fetchUsers(this.getSearchPanelValue)
+      this.fetchQuestions(this.getSearchPanelValue)
+      this.fetchTags(this.getSearchPanelValue)
     }
   }
 }

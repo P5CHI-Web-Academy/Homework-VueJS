@@ -18,19 +18,15 @@
               </v-list-tile-content>
             </v-list-tile>
 
-            <!-- <v-divider inset></v-divider>
+            <v-divider inset></v-divider>
   
-          <v-subheader inset>Users</v-subheader>
+          <v-subheader inset>Questions</v-subheader>
             
           <v-divider inset></v-divider>
   
-          <v-list-tile v-for="item in items2" :key="item.title" avatar @click="">
-            <v-list-tile-avatar>
-              <v-icon>{{ item.icon }}</v-icon>
-            </v-list-tile-avatar>
-  
+          <v-list-tile v-for="question in questionsList" :key="question.id" avatar>
             <v-list-tile-content>
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+              <v-list-tile-title>{{ question.title }}</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
             
@@ -40,15 +36,11 @@
             
           <v-divider inset></v-divider>
   
-          <v-list-tile v-for="item in items2" :key="item.title" avatar @click="">
-            <v-list-tile-avatar>
-              <v-icon>{{ item.icon }}</v-icon>
-            </v-list-tile-avatar>
-  
+          <v-list-tile v-for="tag in tagsList" :key="tag.name" avatar>
             <v-list-tile-content>
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+              <v-list-tile-title>{{ tag.name }}</v-list-tile-title>
             </v-list-tile-content>
-            </v-list-tile>-->
+            </v-list-tile> 
           </v-list>
         </v-card>
       </v-flex>
@@ -62,7 +54,9 @@ export default {
   name: 'SearchResult',
   computed: {
     ...mapGetters({
-      usersList: 'searchPanel/getSearchPanelList'
+      usersList: 'searchPanel/getUsersList',
+      questionsList: 'searchPanel/getQuestionsList',
+      tagsList: 'searchPanel/getTagsList'
     })
   }
 }
