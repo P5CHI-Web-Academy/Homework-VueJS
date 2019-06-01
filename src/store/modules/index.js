@@ -1,2 +1,3 @@
 export { default as user } from './user'
-export { default as question } from './question'
+export { default as questions } from './questions'
+export { default as searchPanel } from './searchPanel'

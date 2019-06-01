@@ -1,9 +1,9 @@
-FROM node:10.13.0-alpine
+FROM node:10.15.3-alpine
 
-WORKDIR /var/www
+RUN npm install -g json-server
 
-RUN yarn global add json-server
+WORKDIR "/var/www"
 
 EXPOSE 3000
 
-CMD json-server --host 0.0.0.0 --watch db.json
+CMD json-server --host 0.0.0.0 --watch data/db.json
