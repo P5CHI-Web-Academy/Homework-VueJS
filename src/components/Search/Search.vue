@@ -3,6 +3,7 @@
     <v-layout>
       <v-flex>
         <v-card>
+
             <v-list-tile v-for="user in usersList" :key="user.id" avatar>
               <v-list-tile-avatar>
                 <img :src="user.profile_image" alt="John">
@@ -23,12 +24,13 @@
           </v-list-tile>
 
           <v-list-tile v-for="tag in tagsList" :key="tag.name" avatar>
-            <v-list-tile-content>
-              <v-list-tile-title @click="reset">{{ tag.name }}</v-list-tile-title>
-            </v-list-tile-content>
-            </v-list-tile> 
+            <router-link :to="{name: 'tag', params: {count: tag.count}}">
+              <v-list-tile-content>
+                <v-list-tile-title @click="reset">{{ tag.name }}</v-list-tile-title>
+              </v-list-tile-content>
+            </router-link>
+          </v-list-tile> 
 
-          </v-list>
         </v-card>
       </v-flex>
     </v-layout>

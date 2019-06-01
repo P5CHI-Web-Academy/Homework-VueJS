@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ tag }}
+    <a href="">{{ tag.name }}</a> × {{ tag.count }}
   </div>
 </template>
 
@@ -36,3 +36,14 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  a {
+    background-color: #cee0ed;
+    text-decoration: none;
+    color: #005999;
+    padding: .4em .5em;
+    border-radius: 3px;
+    border: 1px solid #cee0ed;
+  }
+</style>

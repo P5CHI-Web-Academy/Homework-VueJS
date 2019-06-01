@@ -42,6 +42,7 @@ export default {
     margin-top: -3px;
     color: #666;
     transition: ease-in-out all 0.4s;
+    text-decoration: none;
   }
 
   .tag-container a:hover {
