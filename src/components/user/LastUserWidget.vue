@@ -15,22 +15,21 @@
         indeterminate
       />
     </div>
-
-    <div v-else v-for="user in userList" :key="user.id" class="avatars"> 
+    <div v-for="user in userList" v-else :key="user.id" class="avatars">
       <router-link :to="{name: 'user', params: {id: user.id}}">
-      <v-avatar class="d-inline-flex ma-2" color="indigo">
-        <img
-          :src="user.profile_image"
-          alt="John"
-        >
-      </v-avatar>
-      </router-link>   
+        <v-avatar class="d-inline-flex ma-2" color="indigo">
+          <img
+            :src="user.profile_image"
+            alt="John"
+          >
+        </v-avatar>
+      </router-link>
     </div>
-    
   </div>
 </template>
 <script>
 import { mapActions, mapGetters } from 'vuex'
+
 export default {
   computed: {
     ...mapGetters({
@@ -46,7 +45,7 @@ export default {
       fetchUsers: 'user/fetch'
     })
   }
- }
+}
 </script>
 
 <style>

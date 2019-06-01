@@ -35,8 +35,8 @@ export default {
     ...mapGetters({
       getProfile: 'profile/getProfile'
     }),
-    user: function () {
-      return this.getProfile(parseInt(this.id)) || {}
+    user() {
+      return this.getProfile(parseInt(this.id)) || {};
     }
   },
   methods: {
@@ -44,7 +44,7 @@ export default {
       fetchUser: 'profile/fetch'
     })
   },
-  async mounted() {
+  mounted() {
     this.fetchUser()
   }
 }

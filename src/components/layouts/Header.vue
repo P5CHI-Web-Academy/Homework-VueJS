@@ -6,10 +6,12 @@
 
     <v-spacer />
 
-    <v-text-field label="Search" solo />
+    <v-text-field label="Search" solo 
+    @input="(e) => search(e)" 
+    v-bind:value="getSearchPanelValue"
+    />
 
     <v-spacer />
-
     <v-toolbar-items class="hidden-sm-and-down">
       <v-btn flat>
         <v-icon>inbox</v-icon>
@@ -23,8 +25,32 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
-  name: 'Header'
+  name: 'Header',
+  computed: {
+    ...mapGetters({
+      getSearchPanelValue: 'search/getSearchPanelValue'
+    })
+  },
+  methods: {
+    ...mapActions({
+      grabInput: 'search/mutateSearchPanelValue',
+      fetchUsers: 'search/mutateUsersList',
+      fetchQuestions: 'search/mutateQuestionsList',
+      fetchTags: 'search/mutateTagsList'
+    }),
+    fetchQueries () {
+      this.fetchUsers(this.getSearchPanelValue)
+      this.fetchQuestions(this.getSearchPanelValue)
+      this.fetchTags(this.getSearchPanelValue)
+    },
+    search (e) {
+      this.grabInput(e)
+      this.fetchQueries()
+    }
+  }
 }
 </script>
 

@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header />
+    <Search />
 
     <v-layout row wrap class="mt-4">
       <v-flex xs2>
@@ -22,9 +23,11 @@
 import Header from '@/components/layouts/Header'
 import LeftMenu from '@/components/layouts/LeftMenu'
 import RightPart from '@/components/layouts/RightPart'
+import Search from '@/components/Search/Search'
+
 export default {
   name: 'CommonLayout',
-  components: { LeftMenu, Header, RightPart }
+  components: { LeftMenu, Header, RightPart, Search }
 }
 </script>
 
