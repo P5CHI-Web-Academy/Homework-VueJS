@@ -8,6 +8,7 @@
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
+  name: 'Tag',
   props: {
     count: {
       type: [String, Number],

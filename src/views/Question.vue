@@ -4,7 +4,8 @@
       <router-link :to="{name: 'home'}">Back to all questions</router-link>
     </div>
     <h3>{{ element.title }}</h3>
-    <div v-html="element.body"></div>
+    <!-- eslint-disable-next-line vue/no-v-html -->
+    <div v-html="element.body" />
   </div>
 </template>
 
@@ -12,6 +13,7 @@
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
+  name: 'Question',
   props: {
     id: {
       type: [Number, String],

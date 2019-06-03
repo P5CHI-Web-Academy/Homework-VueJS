@@ -14,7 +14,7 @@
 
       <v-flex xs2>
         <RightPart />
-      </v-flex> 
+      </v-flex>
     </v-layout>
   </div>
 </template>

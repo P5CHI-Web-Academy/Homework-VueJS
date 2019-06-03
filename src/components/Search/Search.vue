@@ -1,19 +1,19 @@
 <template>
-  <div class="search" v-if="searchPanelValue">
+  <div v-if="searchPanelValue" class="search">
     <v-layout>
       <v-flex>
         <v-card>
-
-            <v-list-tile v-for="user in usersList" :key="user.id" avatar>
-              <v-list-tile-avatar>
-                <img :src="user.profile_image" alt="John">
-              </v-list-tile-avatar>
-              <router-link :to="{name: 'user', params: {id: user.id}}">
-                <v-list-tile-content >
-                  <v-list-tile-title v-html="user.display_name" @click="reset"></v-list-tile-title>
-                </v-list-tile-content>
-              </router-link>
-            </v-list-tile>
+          <v-list-tile v-for="user in usersList" :key="user.id" avatar>
+            <v-list-tile-avatar>
+              <img :src="user.profile_image" alt="John">
+            </v-list-tile-avatar>
+            <router-link :to="{name: 'user', params: {id: user.id}}">
+              <v-list-tile-content>
+                <!-- eslint-disable-next-line vue/no-v-html -->
+                <v-list-tile-title @click="reset" v-html="user.display_name" />
+              </v-list-tile-content>
+            </router-link>
+          </v-list-tile>
 
           <v-list-tile v-for="question in questionsList" :key="question.id" avatar>
             <router-link :to="{name: 'question', params: {id: question.id}}">
@@ -29,8 +29,7 @@
                 <v-list-tile-title @click="reset">{{ tag.name }}</v-list-tile-title>
               </v-list-tile-content>
             </router-link>
-          </v-list-tile> 
-
+          </v-list-tile>
         </v-card>
       </v-flex>
     </v-layout>
@@ -38,7 +37,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'Search',
@@ -50,12 +49,12 @@ export default {
       searchPanelValue: 'search/getSearchPanelValue'
     })
   },
-    methods: {
+  methods: {
     ...mapActions({
-    resetSearchValue: 'search/resetSearchValue'
-  }),
+      resetSearchValue: 'search/resetSearchValue'
+    }),
     reset () {
-      this.resetSearchValue();
+      this.resetSearchValue()
     }
   }
 }
@@ -73,7 +72,7 @@ export default {
     display: block;
     position: absolute;
     left: 50%;
-    transform: translate(-50%);   
+    transform: translate(-50%);
     content: "";
     width: 20px;
     height: 20px;

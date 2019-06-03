@@ -10,7 +10,7 @@ export default {
   },
   actions: {
     fetch ({ commit }, params) {
-      commit('mutateLoading',true)
+      commit('mutateLoading', true)
       fetchUsers(params)
         .then(result => commit('mutateList', result.data))
         .finally(() => commit('mutateLoading', false))
@@ -41,6 +41,6 @@ export default {
     getLoadingAll: (state) => state.loadingAll,
     getList: (state) => state.list,
     getLoading: (state) => state.loading,
-    getById: (state) => (id) => state.list.find(element => element.id === id),
+    getById: (state) => (id) => state.list.find(element => element.id === id)
   }
 }

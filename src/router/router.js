@@ -3,10 +3,10 @@ import Router from 'vue-router'
 import CommonLayout from '@/components/layouts/CommonLayout'
 import Home from '@/views/Home'
 import Question from '../views/Question'
-import User from '../views/User';
-import Users from '../views/Users';
-import Tags from '../views/Tags';
-import Tag from '../views/Tag';
+import User from '../views/User'
+import Users from '../views/Users'
+import Tags from '../views/Tags'
+import Tag from '../views/Tag'
 
 Vue.use(Router)
 

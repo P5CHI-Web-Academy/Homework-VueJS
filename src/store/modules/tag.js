@@ -8,7 +8,7 @@ export default {
   },
   actions: {
     fetch ({ commit }, params) {
-      commit('mutateLoading',true)
+      commit('mutateLoading', true)
       fetchTags(params)
         .then(result => commit('mutateList', result.data))
         .finally(() => commit('mutateLoading', false))

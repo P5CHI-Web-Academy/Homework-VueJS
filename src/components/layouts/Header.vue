@@ -6,9 +6,11 @@
 
     <v-spacer />
 
-    <v-text-field label="Search" solo 
-    @input="(e) => search(e)" 
-    v-bind:value="getSearchPanelValue"
+    <v-text-field
+      label="Search"
+      solo
+      :value="getSearchPanelValue"
+      @input="(e) => search(e)"
     />
 
     <v-spacer />

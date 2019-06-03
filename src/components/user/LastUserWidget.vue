@@ -31,6 +31,7 @@
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
+  name: 'LastUserWidget',
   computed: {
     ...mapGetters({
       userList: 'user/getList',

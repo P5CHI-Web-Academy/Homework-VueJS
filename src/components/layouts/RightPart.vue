@@ -7,6 +7,7 @@
 <script>
 import LastUserWidget from '@/components/User/LastUserWidget'
 export default {
+  name: 'RightPart',
   components: {
     LastUserWidget
   }

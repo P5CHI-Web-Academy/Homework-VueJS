@@ -10,7 +10,9 @@
     </div>
 
     <div v-else>
-      <h2>All Users List</h2>
+      <h2 class="mb-3">
+        All Users List
+      </h2>
       <div v-for="user in users" :key="user.id">
         <v-layout align-center mb-2>
           <v-avatar color="grey" class="mr-2" tile>
@@ -21,9 +23,11 @@
           </v-avatar>
           <router-link
             :to="{name: 'user', params: {id: user.id}}"
-            v-html="user.display_name"
           >
+            <!-- eslint-disable-next-line vue/no-v-html -->
+            <div v-html="user.display_name" />
           </router-link>
+          <!-- eslint-disable-next-line vue/no-v-html -->
           <div class="ml-2" v-html="user.location" />
         </v-layout>
       </div>
