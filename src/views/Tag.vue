@@ -23,7 +23,7 @@ export default {
       return this.getByCount(parseInt(this.count)) || {}
     }
   },
-  async mounted () {
+  created () {
     if (!this.getByCount(parseInt(this.count))) {
       this.fetchTag({
         count: this.count

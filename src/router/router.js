@@ -26,14 +26,14 @@ export default new Router({
         {
           path: 'question/:id',
           name: 'question',
-          'params': ['id'],
+          params: ['id'],
           props: true,
           component: Question
         },
         {
           path: 'user/:id',
           name: 'user',
-          'params': ['id'],
+          params: ['id'],
           props: true,
           component: User
         },
@@ -49,7 +49,7 @@ export default new Router({
         },
         {
           path: 'tag/:count',
-          'params': ['count'],
+          params: ['count'],
           props: true,
           name: 'tag',
           component: Tag

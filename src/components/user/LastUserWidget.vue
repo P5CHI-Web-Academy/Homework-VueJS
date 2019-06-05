@@ -7,24 +7,28 @@
       label="Search"
       @input="(q)=>fetchUsers({q})"
     />
-    <div v-if="loading" class="text-xs-center mt-5">
-      <v-progress-circular
-        :width="1"
-        color="red"
-        :size="70"
-        indeterminate
-      />
-    </div>
-    <div v-for="user in userList" v-else :key="user.id" class="avatars">
-      <router-link :to="{name: 'user', params: {id: user.id}}">
-        <v-avatar class="d-inline-flex ma-2" color="indigo">
-          <img
-            :src="user.profile_image"
-            alt="John"
-          >
-        </v-avatar>
-      </router-link>
-    </div>
+    <template v-if="loading">
+      <div class="text-xs-center mt-5">
+        <v-progress-circular
+          :width="1"
+          color="red"
+          :size="70"
+          indeterminate
+        />
+      </div>
+    </template>
+    <template v-else>
+      <div v-for="user in userList" :key="user.id" class="avatars">
+        <router-link :to="{name: 'user', params: {id: user.id}}">
+          <v-avatar class="d-inline-flex ma-2" color="indigo">
+            <img
+              :src="user.profile_image"
+              alt="John"
+            >
+          </v-avatar>
+        </router-link>
+      </div>
+    </template>
   </div>
 </template>
 <script>
@@ -38,7 +42,7 @@ export default {
       loading: 'user/getLoading'
     })
   },
-  mounted () {
+  created () {
     this.fetchUsers({ _limit: 52 })
   },
   methods: {

@@ -28,7 +28,7 @@ export default {
       return this.getById(parseInt(this.id)) || {}
     }
   },
-  async mounted () {
+  created () {
     if (!this.getById(this.id)) {
       this.fetchQuestion({
         id: this.id
