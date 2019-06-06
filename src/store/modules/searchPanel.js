@@ -6,6 +6,7 @@ export default {
   namespaced: true,
   state: {
     searchPanelValue: '',
+    display: false,
     usersList: [],
     questionsList: [],
     tagsList: []
@@ -14,14 +15,17 @@ export default {
     getSearchPanelValue: state => state.searchPanelValue,
     getUsersList: state => state.usersList,
     getQuestionsList: state => state.questionsList,
-    getTagsList: state => state.tagsList
+    getTagsList: state => state.tagsList,
+    getDisplay: state => state.display
   },
   mutations: {
     mutateSearchPanelValue: (state, q) => {
       state.searchPanelValue = q
+      state.display = true
     },
     resetSearchPanelValue: state => {
       state.searchPanelValue = ''
+      state.display = false
     },
     mutateUsersList: (state, users) => {
       state.usersList = users

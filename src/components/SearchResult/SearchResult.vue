@@ -2,7 +2,7 @@
   <div class="search-result">
     <v-layout row>
       <v-flex>
-        <v-card v-if="searchPanelValue" class="mx-auto" width="650">
+        <v-card v-if="display && searchPanelValue.length > 0" class="mx-auto" width="650">
           <v-list two-line subheader>
             <v-subheader inset>
               Users
@@ -13,7 +13,7 @@
               v-for="user in usersList"
               :key="user.id"
               avatar
-              @click.capture="resetSearchPanelValue"
+              @click.prevent="resetSearchPanelValue"
             >
               <router-link :to="{ name: 'user', params: { id: user.id } }">
                 <div class="inline">
@@ -35,7 +35,7 @@
             </v-subheader>'
             <v-divider inset />
 
-            <v-list-tile v-for="question in questionsList" :key="question.id">
+            <v-list-tile v-for="question in questionsList" :key="question.id" @click.prevent="resetSearchPanelValue">
               <router-link :to="{ name: 'question', params: { id: question.id } }">
                 <v-list-tile-title>{{ question.title }}</v-list-tile-title>
               </router-link>
@@ -67,7 +67,8 @@ export default {
       searchPanelValue: 'searchPanel/getSearchPanelValue',
       usersList: 'searchPanel/getUsersList',
       questionsList: 'searchPanel/getQuestionsList',
-      tagsList: 'searchPanel/getTagsList'
+      tagsList: 'searchPanel/getTagsList',
+      display: 'searchPanel/getDisplay'
     }),
     ...mapActions({
       changeSearchPanelValue: 'searchPanel/mutateSearchPanelValue',
