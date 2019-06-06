@@ -2,7 +2,7 @@
   <div>
     <v-layout column>
       <v-flex>
-        <Header />     
+        <Header />
       </v-flex>
       <v-flex>
         <SearchResult />

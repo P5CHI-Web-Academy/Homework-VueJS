@@ -28,8 +28,8 @@
 
 <script>
 export default {
-  name: "LeftMenu"
-};
+  name: 'LeftMenu'
+}
 </script>
 
 <style scoped>

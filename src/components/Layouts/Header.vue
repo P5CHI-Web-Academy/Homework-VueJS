@@ -4,18 +4,18 @@
       <router-link :to="{ name: 'home' }">StackOverflow</router-link>
     </v-toolbar-title>
 
-    <v-spacer/>
+    <v-spacer />
 
     <div class="search">
       <v-text-field
         label="Search"
         solo
-        @input="(q) => updateValue(q)"
-        :value='getSearchPanelValue'
+        :value="getSearchPanelValue"
+        @input="updateValue"
       />
     </div>
 
-    <v-spacer/>
+    <v-spacer />
 
     <v-toolbar-items class="hidden-sm-and-down">
       <v-btn flat>
@@ -30,30 +30,30 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
-import SearchResult from "@/components/SearchResult";
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
-  name: "Header",
+  name: 'Header',
   computed: {
     ...mapGetters({
-      getSearchPanelValue: "searchPanel/getSearchPanelValue"
+      getSearchPanelValue: 'searchPanel/getSearchPanelValue'
     })
   },
   methods: {
     ...mapActions({
-      changeValue: "searchPanel/mutateSearchPanelValue",
-      fetchUsers: "searchPanel/mutateUsersList",
-      fetchQuestions: "searchPanel/mutateQuestionsList",
-      fetchTags: "searchPanel/mutateTagsList"
+      changeValue: 'searchPanel/mutateSearchPanelValue',
+      fetchUsers: 'searchPanel/mutateUsersList',
+      fetchQuestions: 'searchPanel/mutateQuestionsList',
+      fetchTags: 'searchPanel/mutateTagsList'
     }),
-    updateValue(q) {
-      this.changeValue(q);
-      this.fetchUsers(this.getSearchPanelValue);
-      this.fetchQuestions(this.getSearchPanelValue);
-      this.fetchTags(this.getSearchPanelValue);
+    updateValue (q) {
+      this.changeValue(q)
+      this.fetchUsers(this.getSearchPanelValue)
+      this.fetchQuestions(this.getSearchPanelValue)
+      this.fetchTags(this.getSearchPanelValue)
     }
   }
-};
+}
 </script>
 
 <style  lang="scss">

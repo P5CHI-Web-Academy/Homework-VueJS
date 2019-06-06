@@ -1,29 +1,30 @@
 <template>
   <div>
     <div v-for="tag in tags" :key="tag.name" class="block">
-      <div>{{tag.name}}</div> x <div>{{tag.count}}</div>
+      <div>{{ tag.name }}</div> x <div>{{ tag.count }}</div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
-  name: "Tags",
+  name: 'Tags',
   computed: {
     ...mapGetters({
-      tags: "tags/getList"
+      tags: 'tags/getList'
     })
   },
-  created() {
-    this.fetch();
+  created () {
+    this.fetch()
   },
   methods: {
     ...mapActions({
-      fetch: "tags/fetch"
+      fetch: 'tags/fetch'
     })
   }
-};
+}
 </script>
 
 <style scoped>

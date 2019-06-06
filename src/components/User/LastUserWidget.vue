@@ -1,13 +1,15 @@
 <template>
   <div>
-    <p class="title text-lg-center">Users</p>
-    <v-text-field label="Search" @input="(q)=>fetchUsers({q,limit:20})"/>
+    <p class="title text-lg-center">
+      Users
+    </p>
+    <v-text-field label="Search" @input="(q) => fetchUsers({q, limit:20})" />
     <div v-if="loading" class="text-xs-center mt-5">
-      <v-progress-circular :width="1" color="red" :size="70" indeterminate/>
+      <v-progress-circular :width="1" color="red" :size="70" indeterminate />
     </div>
 
     <div v-else>
-      <div v-for="user in userList" :key="user.id" class='inline'>
+      <div v-for="user in userList" :key="user.id" class="inline">
         <router-link :to="{name:'user', params: { id: user.id }}">
           <v-avatar class="d-inline-flex ma-2" color="indigo">
             <img :src="user.profile_image" alt="John">
@@ -17,24 +19,26 @@
     </div>
   </div>
 </template>
+
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   computed: {
     ...mapGetters({
-      userList: "user/getList",
-      loading: "user/getLoading"
+      userList: 'user/getList',
+      loading: 'user/getLoading'
     })
   },
-  created() {
-    this.fetchUsers({ _limit: 52 });
+  created () {
+    this.fetchUsers({ _limit: 52 })
   },
   methods: {
     ...mapActions({
-      fetchUsers: "user/fetch"
+      fetchUsers: 'user/fetch'
     })
   }
-};
+}
 </script>
 
 <style scoped>
@@ -42,4 +46,3 @@ export default {
     display: inline-block;
   }
 </style>
-

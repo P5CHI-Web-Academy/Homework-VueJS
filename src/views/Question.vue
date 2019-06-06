@@ -1,12 +1,16 @@
 <template>
   <div>
-    <h2 v-html='element.title'></h2>
+    {{ /* eslint-disable-next-line */ }}
+    <h2 v-html="element.title"></h2>
     <hr>
-    <div v-html='element.body' class="element-body"></div>
+    {{ /* eslint-disable-next-line */ }}
+    <div class="element-body" v-html="element.body"></div>
   </div>
 </template>
+
 <script>
 import { mapGetters, mapActions } from 'vuex'
+
 export default {
   props: {
     id: {

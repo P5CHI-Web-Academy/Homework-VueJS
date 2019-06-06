@@ -6,6 +6,7 @@
           <v-avatar>
             <img :src="user.profile_image">
           </v-avatar>
+          {{ /* eslint-disable-next-line */ }}
           <h2 v-html="user.display_name"></h2>
         </div>
       </router-link>
@@ -14,23 +15,24 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
-  name: "Users",
+  name: 'Users',
   computed: {
     ...mapGetters({
-      users: "users/getList"
+      users: 'users/getList'
     })
   },
-  created() {
-    this.fetch();
+  created () {
+    this.fetch()
   },
   methods: {
     ...mapActions({
-      fetch: "users/fetch"
+      fetch: 'users/fetch'
     })
   }
-};
+}
 </script>
 
 <style scoped>
