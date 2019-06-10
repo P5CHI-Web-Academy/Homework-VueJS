@@ -38,8 +38,8 @@ export default new Router({
           path: '/search',
           name: 'search',
           params: ['query'],
-          // props: (route) => ({ query: route.query.q }),
-          props: true,
+          props: (route) => ({ query: route.query.q }),
+          // props: true,
           component: () => import('@/views/AllSearchResults.vue')
         }
       ]
@@ -66,6 +66,10 @@ export default new Router({
           component: () => import('@/views/User.vue')
         }
       ]
+    },
+    {
+      path: '*',
+      redirect: '/'
     }
   ]
 })
