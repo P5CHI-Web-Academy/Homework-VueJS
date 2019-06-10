@@ -36,7 +36,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      getProfile: 'profile/getProfile'
+      getProfile: 'user/getProfile'
     }),
     user () {
       return this.getProfile(parseInt(this.id)) || {}
@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      fetchUser: 'profile/fetch'
+      fetchUser: 'user/fetchProfile'
     })
   }
 }

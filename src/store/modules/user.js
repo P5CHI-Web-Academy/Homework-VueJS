@@ -5,8 +5,8 @@ export default {
   state: {
     allList: [],
     list: [],
-    loading: false,
-    loadingAll: false
+    profile: [],
+    loading: false
   },
   actions: {
     fetch ({ commit }, params) {
@@ -16,10 +16,14 @@ export default {
         .finally(() => commit('mutateLoading', false))
     },
     fetchAll ({ commit }, params) {
-      commit('mutateLoadingAll', true)
+      commit('mutateLoading', true)
       fetchUsers(params)
         .then(result => commit('mutateAllList', result.data))
-        .finally(() => commit('mutateLoadingAll', false))
+        .finally(() => commit('mutateLoading', false))
+    },
+    fetchProfile ({ commit }, params) {
+      fetchUsers()
+        .then(result => commit('mutateProfile', result.data))
     }
   },
   mutations: {
@@ -29,18 +33,18 @@ export default {
     mutateAllList: (state, users) => {
       state.allList = users
     },
-    mutateLoadingAll: (state, loading) => {
-      state.loadingAll = loading
-    },
     mutateLoading: (state, loading) => {
       state.loading = loading
+    },
+    mutateProfile: (state, profile) => {
+      state.profile = profile
     }
   },
   getters: {
     getAllList: (state) => state.allList,
-    getLoadingAll: (state) => state.loadingAll,
     getList: (state) => state.list,
     getLoading: (state) => state.loading,
-    getById: (state) => (id) => state.list.find(element => element.id === id)
+    getById: (state) => (id) => state.list.find(element => element.id === id),
+    getProfile: (state) => (id) => state.profile.find(profile => profile.id === id)
   }
 }

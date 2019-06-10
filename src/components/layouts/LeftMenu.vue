@@ -1,4 +1,4 @@
-<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
+<template>
   <v-navigation-drawer>
     <v-list dense class="pt-0">
       <v-list-tile>

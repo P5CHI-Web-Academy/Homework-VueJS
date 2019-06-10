@@ -43,7 +43,7 @@ export default {
   computed: {
     ...mapGetters({
       users: 'user/getAllList',
-      loading: 'user/getLoadingAll'
+      loading: 'user/getLoading'
     })
   },
   created () {
