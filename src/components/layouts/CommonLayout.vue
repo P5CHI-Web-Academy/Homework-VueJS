@@ -2,7 +2,6 @@
   <div>
     <Header />
     <Search />
-
     <v-layout row wrap class="mt-4">
       <v-flex xs2>
         <LeftMenu />
@@ -25,7 +24,12 @@ import Search from '@/components/Search/Search'
 
 export default {
   name: 'CommonLayout',
-  components: { LeftMenu, Header, RightPart, Search }
+  components: {
+    LeftMenu,
+    Header,
+    RightPart,
+    Search
+  }
 }
 </script>
 
