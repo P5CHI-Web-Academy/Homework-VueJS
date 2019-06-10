@@ -7,10 +7,10 @@
     <v-spacer />
 
     <v-text-field
+      v-model="searchPanelValue"
       label="Search"
       solo
-      :value="getSearchPanelValue"
-      @input="(e) => search(e)"
+      @input="search"
     />
 
     <v-spacer />
@@ -27,30 +27,35 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { eventBus } from '../../main.js'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'Header',
-  computed: {
-    ...mapGetters({
-      getSearchPanelValue: 'search/getSearchPanelValue'
+  data () {
+    return {
+      searchPanelValue: ''
+    }
+  },
+  created () {
+    eventBus.$on('resetInput', () => {
+      this.searchPanelValue = ''
     })
   },
   methods: {
     ...mapActions({
-      grabInput: 'search/mutateSearchPanelValue',
-      fetchUsers: 'search/mutateUsersList',
-      fetchQuestions: 'search/mutateQuestionsList',
-      fetchTags: 'search/mutateTagsList'
+      fetchUsers: 'user/mutateUsersList',
+      fetchQuestions: 'questions/mutateQuestionsList',
+      fetchTags: 'tag/mutateTagsList'
     }),
     fetchQueries () {
-      this.fetchUsers(this.getSearchPanelValue)
-      this.fetchQuestions(this.getSearchPanelValue)
-      this.fetchTags(this.getSearchPanelValue)
+      this.fetchUsers(this.searchPanelValue)
+      this.fetchQuestions(this.searchPanelValue)
+      this.fetchTags(this.searchPanelValue)
     },
-    search (e) {
-      this.grabInput(e)
+    search () {
       this.fetchQueries()
+      eventBus.$emit('inputChanged', this.searchPanelValue)
     }
   }
 }

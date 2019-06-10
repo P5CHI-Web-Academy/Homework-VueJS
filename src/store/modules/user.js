@@ -5,6 +5,7 @@ export default {
   state: {
     allList: [],
     list: [],
+    usersList: [],
     profile: [],
     loading: false
   },
@@ -21,6 +22,13 @@ export default {
         .then(result => commit('mutateAllList', result.data))
         .finally(() => commit('mutateLoading', false))
     },
+    mutateUsersList ({ commit }, params) {
+      fetchUsers(params)
+        .then(result => {
+          const data = result.data.filter(user => user.display_name.toLowerCase().includes(params))
+          commit('mutateUsersList', data)
+        })
+    },
     fetchProfile ({ commit }, params) {
       fetchUsers()
         .then(result => commit('mutateProfile', result.data))
@@ -33,6 +41,9 @@ export default {
     mutateAllList: (state, users) => {
       state.allList = users
     },
+    mutateUsersList: (state, users) => {
+      state.usersList = users
+    },
     mutateLoading: (state, loading) => {
       state.loading = loading
     },
@@ -43,6 +54,7 @@ export default {
   getters: {
     getAllList: (state) => state.allList,
     getList: (state) => state.list,
+    getUsersList: state => state.usersList,
     getLoading: (state) => state.loading,
     getById: (state) => (id) => state.list.find(element => element.id === id),
     getProfile: (state) => (id) => state.profile.find(profile => profile.id === id)

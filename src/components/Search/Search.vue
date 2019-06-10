@@ -1,5 +1,5 @@
 <template>
-  <div v-if="searchPanelValue" class="search">
+  <div v-if="searchQuery" class="search">
     <v-layout>
       <v-flex>
         <v-card>
@@ -37,24 +37,32 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { eventBus } from '../../main.js'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Search',
+  data () {
+    return {
+      searchQuery: ''
+    }
+  },
   computed: {
     ...mapGetters({
-      usersList: 'search/getUsersList',
-      questionsList: 'search/getQuestionsList',
-      tagsList: 'search/getTagsList',
-      searchPanelValue: 'search/getSearchPanelValue'
+      usersList: 'user/getUsersList',
+      questionsList: 'questions/getQuestionsList',
+      tagsList: 'tag/getTagsList'
+    })
+  },
+  created () {
+    eventBus.$on('inputChanged', (input) => {
+      this.searchQuery = input
     })
   },
   methods: {
-    ...mapActions({
-      resetSearchValue: 'search/resetSearchValue'
-    }),
     reset () {
-      this.resetSearchValue()
+      eventBus.$emit('resetInput')
+      this.searchQuery = ''
     }
   }
 }
