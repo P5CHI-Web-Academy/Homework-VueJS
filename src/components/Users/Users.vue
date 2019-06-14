@@ -1,5 +1,13 @@
 <template>
   <div>
+    <v-flex xs3>
+      <v-text-field
+        placeholder="Search"
+        solo
+        @input="(q)=>fetchUsers({ q, '_limit': 20 })"
+      />
+    </v-flex>
+
     <v-layout row wrap class="ml-2">
       <v-flex v-for="user in userList" :key="user.id" xs3>
         <v-flex>

@@ -6,11 +6,9 @@
         <br>
       </v-flex>
 
-      <v-flex xs6 class="text-xs-right">
+      <v-flex xs6 class="text-xs-right" />
 
-      </v-flex>
     </v-layout>
-    <hr>
 
     <Users />
   </div>
