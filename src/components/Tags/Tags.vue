@@ -1,5 +1,12 @@
 <template>
   <div>
+    <v-flex xs3>
+      <v-text-field
+        placeholder="Filter by tag"
+        solo
+        @input="(q)=>fetchTags({ q, '_limit': 20 })"
+      />
+    </v-flex>
     <v-layout row wrap class="ml-2">
       <v-flex v-for="tag in tagsList" :key="tag.name" xs3>
         <v-divider light />
