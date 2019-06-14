@@ -2,7 +2,7 @@
   <div>
     <v-flex xs3>
       <v-text-field
-        placeholder="Search"
+        placeholder="Filter by user"
         solo
         @input="(q)=>fetchUsers({ q, '_limit': 20 })"
       />
