@@ -1,19 +1,16 @@
 version: "3.7"
-services:
-  api:
-    build: ./docker/dev/api
-    image: json-server
-    container_name: json-server
-    volumes:
-      - ./database:/var/www
-    ports:
-      - "3000:3000"
 
+services:
   app:
-    build: ./docker/dev/app
-    image: vuejs
-    container_name: vuejs
+    build: docker/dev/app
     volumes:
-      - .:/var/www
+      - ./:/var/www:cached
     ports:
-      - "8080:8080"
+      - 8080:8080
+
+  api:
+    build: docker/dev/api
+    volumes:
+      - ./data:/var/www/data:cached
+    ports:
+      - 3000:3000
