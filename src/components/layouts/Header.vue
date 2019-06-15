@@ -2,13 +2,13 @@
   <div>
     <v-toolbar>
       <v-toolbar-title class="headline text-lowercase">
-        <span class="font-weight-light">stack</span>
-        <span>overflow</span>
+        <router-link :to="{ name: 'home' }">
+          <span class="font-weight-light">stack</span>
+          <span>overflow</span>
+        </router-link>
       </v-toolbar-title>
 
-      <v-spacer>
-        <v-text-field label="Search..." solo />
-      </v-spacer>
+      <v-text-field v-model="searchQuery" label="Search..." class="mx-3" solo @keyup.enter="search" />
 
       <v-toolbar-items>
         <v-btn icon>
@@ -24,13 +24,17 @@
           flat
           target="_blank"
         >
-          <span class="mr-2">Log in</span>
+          <span class="mr-2">
+            Log in
+          </span>
         </v-btn>
         <v-btn
           flat
           target="_blank"
         >
-          <span class="mr-2">Sign up</span>
+          <span class="mr-2">
+            Sign up
+          </span>
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
@@ -39,6 +43,23 @@
 
 <script>
 export default {
-  name: 'Header'
+  name: 'Header',
+  data: function () {
+    return {
+      searchQuery: ''
+    }
+  },
+  methods: {
+    search () {
+      this.$router.push({ path: '/search', query: { q: this.searchQuery } })
+    }
+  }
 }
 </script>
+
+<style scoped lang="scss">
+  .v-toolbar__title > a {
+    color: black;
+    text-decoration: none;
+  }
+</style>

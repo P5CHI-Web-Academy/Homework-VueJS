@@ -4,14 +4,31 @@ export default {
   namespaced: true,
   state: {
     userList: [],
+    userSearchResults: [],
     loading: false
   },
   actions: {
-    fetch: ({ commit }) => {
+    fetch: ({ commit }, params) => {
       commit('mutateLoading', true)
-      fetchUsers()
-        .then(result => commit('mutateUserList', result.data))
+      return fetchUsers(params)
+        .then(result => {
+          commit('mutateUserList', result.data)
+          return result
+        })
+        .catch(error => {
+          alert(error)
+        })
         .then(() => commit('mutateLoading', false))
+    },
+    fetchUserSearchResults: ({ commit }, query) => {
+      return fetchUsers(query)
+        .then(result => {
+          commit('mutateUsersSearchResults', result.data)
+          return result
+        })
+        .catch(error => {
+          alert(error)
+        })
     }
   },
   mutations: {
@@ -20,10 +37,14 @@ export default {
     },
     mutateLoading: (state, isLoading) => {
       state.loading = isLoading
+    },
+    mutateUsersSearchResults: (state, results) => {
+      state.userSearchResults = results
     }
   },
   getters: {
     getUserList: state => state.userList,
+    getUsersSearchResults: state => state.userSearchResults,
     getLoading: state => state.loading,
     getById: state => id => state.userList.find(obj => obj.id === id)
   }

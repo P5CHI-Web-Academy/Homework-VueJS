@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import CommonLayout from '@/components/layouts/CommonLayout'
+import SecondLayout from '@/components/layouts/SecondLayout'
 import Home from '@/views/Home.vue'
 
 Vue.use(Router)
@@ -34,6 +35,20 @@ export default new Router({
           component: () => import('@/views/Question.vue')
         },
         {
+          path: '/search',
+          name: 'search',
+          params: ['query'],
+          props: (route) => ({ query: route.query.q }),
+          // props: true,
+          component: () => import('@/views/AllSearchResults.vue')
+        }
+      ]
+    },
+    {
+      path: '',
+      component: SecondLayout,
+      children: [
+        {
           path: '/tags',
           name: 'tags',
           component: () => import('@/views/AllTags.vue')
@@ -51,6 +66,10 @@ export default new Router({
           component: () => import('@/views/User.vue')
         }
       ]
+    },
+    {
+      path: '*',
+      redirect: '/'
     }
   ]
 })

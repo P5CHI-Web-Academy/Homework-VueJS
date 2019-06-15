@@ -1,5 +1,12 @@
 <template>
   <div>
+    <p class="title text-lg-center">
+      Users
+    </p>
+    <v-text-field
+      label="Search"
+      @input="(q)=>fetchUsers({ q, '_limit': 20 })"
+    />
     <div v-if="loading" class="text-xs-center">
       <v-progress-circular
         :size="50"
@@ -12,7 +19,7 @@
         <v-tooltip left>
           <template v-slot:activator="{ on }">
             <div v-on="on">
-              <router-link :to="{name: 'user', params: {id: user.id}}">
+              <router-link :to="{ name: 'user', params: { id: user.id } }">
                 <v-avatar size="36px" class="my-1 mx-1">
                   <img
                     :src="user.profile_image"
@@ -24,13 +31,13 @@
             </div>
           </template>
           <div>
-            <span>Location: {{user.location}}</span>
+            <span>Location: {{ user.location }}</span>
           </div>
           <div>
-            <span>Type: {{user.user_type}}</span>
+            <span>Type: {{ user.user_type }}</span>
           </div>
           <div>
-            <span>Reputation: {{user.reputation}}</span>
+            <span>Reputation: {{ user.reputation }}</span>
           </div>
         </v-tooltip>
       </div>
@@ -49,7 +56,7 @@ export default {
     })
   },
   created () {
-    this.fetchUsers()
+    this.fetchUsers({ '_limit': 20 })
   },
   methods: {
     ...mapActions({
@@ -58,3 +65,10 @@ export default {
   }
 }
 </script>
+
+<style scoped lang="scss">
+  div > a {
+    color: grey;
+    text-decoration: none;
+  }
+</style>

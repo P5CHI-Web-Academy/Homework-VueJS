@@ -1,3 +1,3 @@
 import API from './axios'
 
-export const fetchTags = (param) => API.get('/tags')
+export const fetchTags = (params) => API.get('/tags', { params })

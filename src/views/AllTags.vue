@@ -6,12 +6,7 @@
         <br>
       </v-flex>
       <p>A tag is a keyword or label that categorizes your question with other, similar questions. Using the right tags makes it easier for others to find and answer your question.</p>
-
-      <!-- <v-flex xs6 class="text-xs-right">
-
-      </v-flex> -->
     </v-layout>
-    <hr>
 
     <Tags />
   </div>
